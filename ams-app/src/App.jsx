@@ -8,20 +8,34 @@ import Lounge from "./components/lounge/Lounge";
 import Travelers from "./components/travelers/Travelers";
 import Subcribers from "./components/subcribers/Subcribers";
 import Footer from "./components/footer/Footer";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Signin from "./components/auth/Signin";
+import Signup from "./components/auth/Signup";
+
 
 const App = () => {
   return (
-    <div>
-      <Navbar/>
-      <Home/>
-      <Search/>
-      <Support/>
-      <Info/>
-      <Lounge/>
-      {/* <Travelers/> */}
-      <Subcribers/>
-      <Footer/>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Home />
+              <Search />
+              <Support />
+              <Info />
+              <Lounge />
+              <Subcribers />
+            </>
+          }
+        />
+        <Route path="/sign-in" element={<Signin />} />
+        <Route path="/sign-up" element={<Signup />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 };
 

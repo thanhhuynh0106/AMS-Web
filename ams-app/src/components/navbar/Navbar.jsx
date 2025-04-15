@@ -7,6 +7,7 @@ import { AiOutlineGlobal } from "react-icons/ai";
 import { CgMenuGridO } from "react-icons/cg";
 
 import logo from "../../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -40,8 +41,8 @@ const Navbar = () => {
                     <li className="flex"> <AiOutlineGlobal className="icon"/> Languages</li>
                 </div>
                 <div className="atb flex">
-                    <span>Sign In</span>
-                    <span>Sign Out</span>
+                    <span><Link to='/sign-in'>Sign In</Link></span>
+                    <span><Link to='/sign-up'>Sign Up</Link></span>
                 </div>
              </div>
 
