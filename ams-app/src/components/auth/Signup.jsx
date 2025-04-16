@@ -5,11 +5,31 @@ import { useState } from "react";
 
 const Signup = () => {
 
-    const handleRegister = (e) => {
-        e.preventDefault();
-        console.log("Register with", form);
+    const [form, setForm] = useState({
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        phone: "",
+        address: ""
+    });
 
-      };
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        if (form.password !== form.confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        const res = await fetch("http://localhost:8080/api/auth/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(form),
+        });
+
+        const text = await res.text();
+        alert(text);
+    };
 
 
     return (
