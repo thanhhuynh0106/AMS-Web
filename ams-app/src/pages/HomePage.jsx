@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/navbar/navbar";
+import Navbar from "../components/navbar/Navbar";
 import Home from "../components/home/Home";
 import Search from "../components/search/Search";
 import Support from "../components/support/Support";

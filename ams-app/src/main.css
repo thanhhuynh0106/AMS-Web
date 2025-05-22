@@ -1614,6 +1614,9 @@ h2 {
   margin-top: 120px;
   padding: 2rem 0;
 }
+.search-flight-page .search h2 {
+  text-align: center;
+}
 .search-flight-page .search .searchInputs {
   padding: 2rem;
   background: var(--greyBg);
@@ -1756,11 +1759,13 @@ h2 {
   font-size: 24px;
   color: var(--blackColor);
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 .faq p {
   font-size: 14px;
   color: var(--greyText);
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 .faq .faq-list {
   display: grid;
@@ -1810,4 +1815,475 @@ h2 {
 .faq .faq-list .faq-item .faq-answer.open {
   max-height: 200px;
   padding: 1rem;
+}
+
+.search-result-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.search-result-page .search {
+  margin-top: 120px;
+  padding: 2rem 0;
+}
+.search-result-page .search h2 {
+  text-align: center;
+}
+.search-result-page .footer {
+  margin-top: auto;
+}
+.search-result-page .result-container {
+  display: flex;
+  padding: 2rem;
+  gap: 2rem;
+  margin-top: 60px;
+}
+.search-result-page .result-container .left-panel {
+  flex: 1;
+  min-width: 300px;
+}
+.search-result-page .result-container .right-panel {
+  flex: 3;
+  min-width: 600px;
+}
+.search-result-page .result-container .right-panel .sort-container {
+  border: 1px solid var(--greyBg);
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+.search-result-page .result-container .right-panel .sort-container .sort-options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.search-result-page .result-container .right-panel .sort-container .sort-options button {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  background: var(--whiteColor);
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 15px;
+}
+.search-result-page .result-container .right-panel .sort-container .sort-options button.active {
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+}
+.search-result-page .result-container .right-panel .sort-container .sort-options button:hover {
+  background: var(--SecondaryColor);
+}
+.search-result-page .result-container .right-panel .loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 16px;
+  color: var(--greyText);
+}
+.search-result-page .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-result-page .modal .modal-content {
+  background: var(--whiteColor);
+  padding: 2rem;
+  border-radius: 8px;
+  min-width: 400px;
+  position: relative;
+}
+.search-result-page .modal .modal-content h3 {
+  margin-bottom: 1rem;
+}
+.search-result-page .modal .modal-content p {
+  margin-bottom: 0.5rem;
+}
+.search-result-page .modal .modal-content button {
+  padding: 0.5rem 1rem;
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.search-result-page .modal .modal-content button:hover {
+  background: var(--HoverColor);
+}
+
+.search-summary {
+  border: 1px solid var(--greyBg);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--borderColor);
+  background: var(--greyBg);
+  box-shadow: var(--boxShadow);
+}
+.search-summary h3 {
+  font-size: 16px;
+  color: var(--blackColor);
+  margin-bottom: 0.5rem;
+}
+.search-summary p {
+  font-size: 12px;
+  color: var(--greyText);
+  margin-bottom: 0.5rem;
+}
+.search-summary .view-summary-btn {
+  padding: 0.5rem 1rem;
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+.search-summary .view-summary-btn:hover {
+  background: var(--HoverColor);
+}
+.search-summary .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-summary .modal-overlay .modal-content {
+  background: var(--whiteColor);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.search-summary .modal-overlay .modal-content h3 {
+  margin-top: 0;
+}
+.search-summary .modal-overlay .modal-content p {
+  margin: 0.5rem 0;
+  color: var(--blackColor);
+}
+.search-summary .modal-overlay .modal-content .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--greyText);
+}
+.search-summary .modal-overlay .modal-content .close-btn:hover {
+  color: var(--PrimaryColor);
+}
+
+.filters {
+  border: 1px solid var(--greyBg);
+  border-radius: 8px;
+  padding: 1rem;
+}
+.filters h3 {
+  font-size: 16px;
+  color: var(--blackColor);
+  margin-bottom: 0.5rem;
+}
+.filters p {
+  font-size: 12px;
+  color: var(--greyText);
+  margin-bottom: 0.5rem;
+}
+.filters .filter-section {
+  margin-bottom: 1rem;
+}
+.filters .filter-section h4 {
+  font-size: 14px;
+  color: var(--blackColor);
+  margin-bottom: 0.5rem;
+}
+.filters .filter-section label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 12px;
+}
+.filters .filter-section label input {
+  margin-right: 0.5rem;
+}
+
+.flight-results .flight-card {
+  border: 1px solid var(--greyBg);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  background: var(--greyBg);
+  border: 1px solid var(--borderColor);
+  box-shadow: var(--boxShadow);
+}
+.flight-results .flight-card .badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.flight-results .flight-card .badges .badge {
+  font-size: 12px;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+}
+.flight-results .flight-card .badges .badge.green {
+  background-color: #d4f4dd;
+  color: #2e7d32;
+}
+.flight-results .flight-card .badges .badge.lightgreen {
+  background-color: #e0f7fa;
+  color: #00796b;
+}
+.flight-results .flight-card .flight-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flight-results .flight-card .flight-content .flight-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.flight-results .flight-card .flight-content .flight-info .time-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+.flight-results .flight-card .flight-content .flight-info .time-info strong {
+  font-size: 16px;
+}
+.flight-results .flight-card .flight-content .flight-info .stop-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: var(--greyText);
+}
+.flight-results .flight-card .flight-content .flight-info .stop-info .line {
+  width: 40px;
+  height: 1px;
+  background: var(--greyText);
+  margin: 0.2rem 0;
+}
+.flight-results .flight-card .flight-content .flight-info .stop-info .stops {
+  border: 1px solid var(--greyText);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 11px;
+  background: #fff;
+}
+.flight-results .flight-card .flight-content .flight-info .stop-info .duration {
+  margin-top: 0.3rem;
+}
+.flight-results .flight-card .flight-content .flight-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+.flight-results .flight-card .flight-content .flight-price .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--blackColor);
+}
+.flight-results .flight-card .flight-content .flight-price .view-details {
+  padding: 0.4rem 1rem;
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.flight-results .flight-card .flight-content .flight-price .view-details:hover {
+  background: var(--HoverColor);
+}
+.flight-results .flight-card .airline-name {
+  margin-top: 0.5rem;
+  font-size: 12px;
+  color: var(--greyText);
+}
+.flight-results .better-prices {
+  border: 1px solid var(--greyBg);
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--whiteColor);
+}
+.flight-results .better-prices .better-prices-text {
+  margin-bottom: 0.5rem;
+}
+.flight-results .better-prices .better-prices-text strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.flight-results .better-prices .better-prices-text p {
+  font-size: 12px;
+  color: var(--greyText);
+}
+.flight-results .better-prices .date-options {
+  display: flex;
+  gap: 0.8rem;
+}
+.flight-results .better-prices .date-options button {
+  border: 1px solid var(--greyBg);
+  background: var(--whiteColor);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  border: 1px solid var(--borderColor);
+  box-shadow: var(--boxShadow);
+}
+.flight-results .better-prices .date-options button strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 14px;
+}
+.flight-results .better-prices .date-options button:hover {
+  background: var(--SecondaryColor);
+}
+
+.flight-detail-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.flight-detail-modal .modal-box {
+  background: var(--whiteColor);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+  border-radius: 20px;
+}
+.flight-detail-modal .modal-box .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--greyBg);
+  position: sticky;
+  top: 0;
+  background: var(--whiteColor);
+  z-index: 1;
+}
+.flight-detail-modal .modal-box .header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--blackColor);
+}
+.flight-detail-modal .modal-box .header .close-btn {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--greyText);
+  font-weight: bold;
+}
+.flight-detail-modal .modal-box .header .close-btn:hover {
+  color: var(--blackColor);
+}
+.flight-detail-modal .modal-box .modal-content-scroll {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: calc(90vh - 100px);
+}
+.flight-detail-modal .modal-box .modal-content-scroll .flight-section {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--greyBg);
+}
+.flight-detail-modal .modal-box .modal-content-scroll .flight-section h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--blackColor);
+  margin-bottom: 0.5rem;
+}
+.flight-detail-modal .modal-box .modal-content-scroll .flight-section p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+.flight-detail-modal .modal-box .modal-content-scroll .flight-section .flight-times p {
+  font-size: 14px;
+  color: var(--blackColor);
+  line-height: 1.5;
+}
+.flight-detail-modal .modal-box .modal-content-scroll .info-section {
+  margin-bottom: 1.5rem;
+}
+.flight-detail-modal .modal-box .modal-content-scroll .info-section h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--blackColor);
+  margin-bottom: 0.5rem;
+}
+.flight-detail-modal .modal-box .modal-content-scroll .info-section ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+.flight-detail-modal .modal-box .modal-content-scroll .info-section ul li {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+.flight-detail-modal .modal-box .modal-content-scroll .info-section p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+.flight-detail-modal .modal-box .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--greyBg);
+  background: var(--whiteColor);
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+}
+.flight-detail-modal .modal-box .footer .price {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--blackColor);
+}
+.flight-detail-modal .modal-box .footer .select-btn {
+  padding: 0.5rem 1.5rem;
+  background: #0064e0;
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+.flight-detail-modal .modal-box .footer .select-btn:hover {
+  background: #0052cc;
 }/*# sourceMappingURL=main.css.map */
