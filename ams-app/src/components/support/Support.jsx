@@ -23,19 +23,19 @@ const Support = () => {
         <div className="infoDiv grid">
           <div className="textDiv grid">
 
-            <div data-aos='fade-down' data-aos-duration='2500' className="singleInfo">
+            <div  className="singleInfo">
               <span className='numver'>01</span>
               <h4>Travel requirements</h4>
               <p>Check the latest travel requirements for your destination, including entry restrictions and health protocols.</p>
             </div>
             
-            <div data-aos='fade-down' data-aos-duration='3500'  className="singleInfo">
+            <div  className="singleInfo">
               <span className='numver colorOne'>02</span>
                 <h4>Chauffer services at your arrival</h4>
                 <p>Book a chauffeur service to pick you up from the airport and take you to your destination.</p>
             </div>
 
-            <div data-aos='fade-down' data-aos-duration='4500'  className="singleInfo ">
+            <div className="singleInfo ">
               <span className='numver colorTwo'>03</span>
                 <h4>Multirisk travel insurance</h4>
                 <p>Get peace of mind with travel insurance that covers trip cancellations, medical emergencies, and more.</p>
@@ -43,7 +43,7 @@ const Support = () => {
 
           </div>
 
-          <div data-aos='fade-left' data-aos-duration='2500' className="imgDiv">
+          <div  className="imgDiv">
             <img src={gridImage}/>
           </div>
 

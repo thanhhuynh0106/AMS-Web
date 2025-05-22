@@ -17,15 +17,15 @@ const Info = () => {
       <div className="infoContainer container">
 
         <div className="titleDiv flex">
-          <h2 data-aos='fade-right' data-aos-duration='2500' >Travel to make memories all around the world</h2>
-          <button data-aos='fade-left' data-aos-duration='2500' className='btn'>
+          <h2  >Travel to make memories all around the world</h2>
+          <button className='btn'>
             View All
           </button>
         </div>
 
         <div className="cardDiv grid">
           
-          <div  data-aos='fade-down' data-aos-duration='2500' className="singleCard grid">
+          <div   className="singleCard grid">
             <div className="iconDiv flex">
               <RxCalendar className='icon' />
             </div>
@@ -33,7 +33,7 @@ const Info = () => {
             <p>You can also call airlines from your phone and book a flight trip</p>
           </div>
 
-          <div  data-aos='fade-down' data-aos-duration='3500' className="singleCard grid">
+          <div   className="singleCard grid">
             <div className="iconDiv flex colorOne">
               <BsShieldCheck className='icon' />
             </div>
@@ -41,7 +41,7 @@ const Info = () => {
             <p>We provide you with a smart checklist to help you pack your bags</p>
           </div>
 
-          <div  data-aos='fade-down' data-aos-duration='4500' className="singleCard grid">
+          <div  className="singleCard grid">
             <div className="iconDiv flex colorTwo">
               <BsBookmarkCheck className='icon' />
             </div>

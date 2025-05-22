@@ -10,7 +10,7 @@ const Subcribers = () => {
 
   return (
     <div className='subcribers section'>
-      <div data-aos='fade-down' data-aos-duration='2500' className="sectionContainer container">
+      <div  className="sectionContainer container">
         <h2>Subcribe newsletters and get latest news!</h2>
         <div className="inputDiv flex">
           <input type="text" placeholder='Enter your email address'/>

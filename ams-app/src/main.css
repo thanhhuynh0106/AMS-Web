@@ -903,4 +903,911 @@ h2 {
 .signin .form button:hover {
   background: var(--HoverColor);
   transition: var(--transition);
+}
+
+.sidebar {
+  width: 250px;
+  height: calc(100vh - 120px);
+  position: fixed;
+  top: 120px;
+  left: 0;
+  z-index: 1000;
+  color: var(--whiteColor);
+}
+.sidebar .sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 1rem;
+}
+.sidebar .sidebar-header .logoDiv {
+  width: 30px;
+  margin-right: 0.5rem;
+}
+.sidebar .sidebar-header .logoDiv .logo {
+  width: 100%;
+}
+.sidebar .sidebar-header .sidebar-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--whiteColor);
+}
+.sidebar .sidebar-menu {
+  margin-top: 1rem;
+  padding-right: 20px;
+  border-right: 1px solid var(--borderColor);
+}
+.sidebar .sidebar-menu .sidebar-section-title {
+  padding: 0.8rem 1rem;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blackColor);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+.sidebar .sidebar-menu .sidebar-item {
+  padding: 0.8rem 1rem 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.sidebar .sidebar-menu .sidebar-item .icon {
+  font-size: 1.2rem;
+  margin-right: 0.8rem;
+  color: var(--blackColor);
+}
+.sidebar .sidebar-menu .sidebar-item:hover {
+  background: var(--HoverColor);
+  color: var(--whiteColor);
+  border-radius: 2rem;
+}
+.sidebar .sidebar-menu .sidebar-item.active {
+  background: var(--HoverColor);
+  color: var(--whiteColor);
+  border-radius: 2rem;
+}
+.sidebar .sidebar-menu .sidebar-item.active .icon {
+  color: var(--whiteColor);
+}
+
+.user-management {
+  padding: 2rem;
+  background: var(--whiteColor);
+  min-height: calc(100vh - 4rem);
+}
+.user-management .user-management-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.user-management .user-management-header h2 {
+  font-size: 25px;
+  color: var(--blackColor);
+  font-weight: 700;
+}
+.user-management .user-management-header .new-btn {
+  padding: 0.5rem 1.5rem;
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+.user-management .user-management-header .new-btn:hover {
+  background: var(--HoverColor);
+  transition: var(--transition);
+}
+.user-management .user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.user-management .user-table thead {
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+}
+.user-management .user-table thead th {
+  padding: 0.8rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--whiteColorDeam);
+}
+.user-management .user-table tbody tr {
+  border-bottom: 1px solid var(--borderColor);
+}
+.user-management .user-table tbody tr td {
+  padding: 0.8rem;
+  color: var(--blackColor);
+  font-size: 13px;
+}
+.user-management .user-table tbody tr td:last-child {
+  text-align: right;
+}
+.user-management .user-table tbody tr:hover {
+  background: var(--greyBg);
+}
+.user-management .user-table .action-btn {
+  padding: 0.3rem 0.8rem;
+  margin-left: 0.5rem;
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  font-size: 12px;
+}
+.user-management .user-table .action-btn.view-btn {
+  background: var(--colorOne);
+  color: var(--whiteColor);
+}
+.user-management .user-table .action-btn.view-btn:hover {
+  background: hsl(15, 74%, 60%);
+}
+.user-management .user-table .action-btn.edit-btn {
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+}
+.user-management .user-table .action-btn.edit-btn:hover {
+  background: var(--HoverColor);
+}
+.user-management .user-table .action-btn.delete-btn {
+  background: hsl(0, 100%, 60%);
+  color: var(--whiteColor);
+}
+.user-management .user-table .action-btn.delete-btn:hover {
+  background: hsl(0, 100%, 50%);
+}
+
+.flight-management {
+  padding: 2rem;
+  background: var(--whiteColor);
+  min-height: calc(100vh - 4rem);
+}
+.flight-management .flight-management-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.flight-management .flight-management-header h2 {
+  font-size: 25px;
+  color: var(--blackColor);
+  font-weight: 700;
+}
+.flight-management .flight-management-header .new-btn {
+  padding: 0.5rem 1.5rem;
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+.flight-management .flight-management-header .new-btn:hover {
+  background: var(--HoverColor);
+  transition: var(--transition);
+}
+.flight-management .flight-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.flight-management .flight-table thead {
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+}
+.flight-management .flight-table thead th {
+  padding: 0.8rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--whiteColorDeam);
+}
+.flight-management .flight-table tbody tr {
+  border-bottom: 1px solid var(--borderColor);
+}
+.flight-management .flight-table tbody tr td {
+  padding: 0.8rem;
+  color: var(--blackColor);
+  font-size: 13px;
+}
+.flight-management .flight-table tbody tr td:last-child {
+  text-align: right;
+}
+.flight-management .flight-table tbody tr:hover {
+  background: var(--greyBg);
+}
+.flight-management .flight-table .action-btn {
+  padding: 0.3rem 0.8rem;
+  margin-left: 0.5rem;
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  font-size: 12px;
+}
+.flight-management .flight-table .action-btn.view-btn {
+  background: var(--colorOne);
+  color: var(--whiteColor);
+}
+.flight-management .flight-table .action-btn.view-btn:hover {
+  background: hsl(15, 74%, 60%);
+}
+.flight-management .flight-table .action-btn.edit-btn {
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+}
+.flight-management .flight-table .action-btn.edit-btn:hover {
+  background: var(--HoverColor);
+}
+.flight-management .flight-table .action-btn.delete-btn {
+  background: hsl(0, 100%, 60%);
+  color: var(--whiteColor);
+}
+.flight-management .flight-table .action-btn.delete-btn:hover {
+  background: hsl(0, 100%, 50%);
+}
+
+.admin-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.admin-page {
+  display: flex;
+  flex: 1;
+  padding-top: 150px;
+}
+.admin-page .admin-content {
+  margin-left: 250px;
+  width: 100%;
+  background: var(--whiteColor);
+  padding-bottom: 80px;
+}
+.admin-page .admin-content .section {
+  padding: 2rem;
+}
+.admin-page .admin-content .section h2 {
+  font-size: 25px;
+  padding: 1rem 0;
+  color: var(--blackColor);
+}
+.admin-page .admin-content .section p {
+  font-size: 13px;
+  color: var(--greyText);
+  line-height: 22px;
+}
+
+.search-bar {
+  padding: 2rem 2rem;
+  top: 60px;
+  z-index: 1000;
+}
+.search-bar .search-input {
+  width: 30%;
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  border: 1px solid var(--borderColor);
+  border-radius: 3rem;
+  background: var(--inputColor);
+  color: var(--blackColor);
+  font-size: 13px;
+  outline: none;
+  box-sizing: border-box;
+}
+.search-bar .search-input::-moz-placeholder {
+  color: var(--greyText);
+  opacity: 0.5;
+}
+.search-bar .search-input::placeholder {
+  color: var(--greyText);
+  opacity: 0.5;
+}
+
+.user-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+.user-form-overlay .user-form-container {
+  background: var(--whiteColor);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: var(--boxShadow);
+}
+.user-form-overlay .user-form-container h3 {
+  font-size: 20px;
+  color: var(--blackColor);
+  margin-bottom: 1.5rem;
+}
+.user-form-overlay .user-form-container .form-group {
+  margin-bottom: 1rem;
+}
+.user-form-overlay .user-form-container .form-group label {
+  display: block;
+  font-size: 13px;
+  color: var(--blackColor);
+  margin-bottom: 0.3rem;
+}
+.user-form-overlay .user-form-container .form-group input,
+.user-form-overlay .user-form-container .form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--borderColor);
+  border-radius: 3rem;
+  background: var(--inputColor);
+  font-size: 13px;
+  color: var(--blackColor);
+}
+.user-form-overlay .user-form-container .form-group input:disabled,
+.user-form-overlay .user-form-container .form-group select:disabled {
+  background: var(--greyBg);
+  color: var(--greyText);
+}
+.user-form-overlay .user-form-container .form-group input::-moz-placeholder, .user-form-overlay .user-form-container .form-group select::-moz-placeholder {
+  color: var(--greyText);
+  opacity: 0.5;
+}
+.user-form-overlay .user-form-container .form-group input::placeholder,
+.user-form-overlay .user-form-container .form-group select::placeholder {
+  color: var(--greyText);
+  opacity: 0.5;
+}
+.user-form-overlay .user-form-container .save-btn {
+  padding: 0.5rem 1.5rem;
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+.user-form-overlay .user-form-container .save-btn:hover {
+  background: var(--HoverColor);
+}
+.user-form-overlay .user-form-container .cancel-btn {
+  padding: 0.5rem 1.5rem;
+  background: var(--greyBg);
+  color: var(--blackColor);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+.user-form-overlay .user-form-container .cancel-btn:hover {
+  background: hsl(0, 0%, 90%);
+}
+
+.flight-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+.flight-form-overlay .flight-form-container {
+  background: var(--whiteColor);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: var(--boxShadow);
+}
+.flight-form-overlay .flight-form-container h3 {
+  font-size: 20px;
+  color: var(--blackColor);
+  margin-bottom: 1.5rem;
+}
+.flight-form-overlay .flight-form-container .form-group {
+  margin-bottom: 1rem;
+}
+.flight-form-overlay .flight-form-container .form-group label {
+  display: block;
+  font-size: 13px;
+  color: var(--blackColor);
+  margin-bottom: 0.3rem;
+}
+.flight-form-overlay .flight-form-container .form-group input,
+.flight-form-overlay .flight-form-container .form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--borderColor);
+  border-radius: 3rem;
+  background: var(--inputColor);
+  font-size: 13px;
+  color: var(--blackColor);
+}
+.flight-form-overlay .flight-form-container .form-group input:disabled,
+.flight-form-overlay .flight-form-container .form-group select:disabled {
+  background: var(--greyBg);
+  color: var(--greyText);
+}
+.flight-form-overlay .flight-form-container .form-group input::-moz-placeholder, .flight-form-overlay .flight-form-container .form-group select::-moz-placeholder {
+  color: var(--greyText);
+  opacity: 0.5;
+}
+.flight-form-overlay .flight-form-container .form-group input::placeholder,
+.flight-form-overlay .flight-form-container .form-group select::placeholder {
+  color: var(--greyText);
+  opacity: 0.5;
+}
+.flight-form-overlay .flight-form-container .save-btn {
+  padding: 0.5rem 1.5rem;
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+.flight-form-overlay .flight-form-container .save-btn:hover {
+  background: var(--HoverColor);
+}
+.flight-form-overlay .flight-form-container .cancel-btn {
+  padding: 0.5rem 1.5rem;
+  background: var(--greyBg);
+  color: var(--blackColor);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+.flight-form-overlay .flight-form-container .cancel-btn:hover {
+  background: hsl(0, 0%, 90%);
+}
+
+.dashboard {
+  padding: 2rem;
+  background: var(--whiteColor);
+  min-height: calc(100vh - 4rem);
+}
+.dashboard .dashboard-header {
+  margin-bottom: 1.5rem;
+}
+.dashboard .dashboard-header h2 {
+  font-size: 25px;
+  color: var(--blackColor);
+  font-weight: 700;
+}
+.dashboard .dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.dashboard .dashboard-stats .stat-card {
+  background: var(--whiteColor);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--boxShadow);
+  border: 1px solid var(--borderColor);
+}
+.dashboard .dashboard-stats .stat-card h3 {
+  font-size: 14px;
+  color: var(--greyText);
+  margin-bottom: 0.5rem;
+}
+.dashboard .dashboard-stats .stat-card .value {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--blackColor);
+  margin-bottom: 0.3rem;
+}
+.dashboard .dashboard-stats .stat-card .value .trend {
+  color: var(--PrimaryColor);
+  font-size: 12px;
+  margin-left: 0.5rem;
+}
+.dashboard .dashboard-stats .stat-card .extra {
+  font-size: 12px;
+  color: var(--greyText);
+}
+.dashboard .dashboard-charts {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+.dashboard .dashboard-charts .chart-container {
+  background: var(--whiteColor);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--boxShadow);
+  border: 1px solid var(--borderColor);
+}
+.dashboard .dashboard-charts .chart-container h3 {
+  font-size: 14px;
+  color: var(--greyText);
+  margin-bottom: 1rem;
+}
+.dashboard .dashboard-charts .chart-container .chart {
+  height: 200px;
+}
+
+.booking-management {
+  padding: 2rem;
+  background: var(--whiteColor);
+  min-height: calc(100vh - 4rem);
+}
+.booking-management .booking-management-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.booking-management .booking-management-header h2 {
+  font-size: 25px;
+  color: var(--blackColor);
+  font-weight: 700;
+}
+.booking-management .booking-management-header .new-btn {
+  padding: 0.5rem 1.5rem;
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+.booking-management .booking-management-header .new-btn:hover {
+  background: var(--HoverColor);
+  transition: var(--transition);
+}
+.booking-management .booking-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.booking-management .booking-table thead {
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+}
+.booking-management .booking-table thead th {
+  padding: 0.8rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--whiteColorDeam);
+}
+.booking-management .booking-table tbody tr {
+  border-bottom: 1px solid var(--borderColor);
+}
+.booking-management .booking-table tbody tr td {
+  padding: 0.8rem;
+  color: var(--blackColor);
+  font-size: 13px;
+}
+.booking-management .booking-table tbody tr td:last-child {
+  text-align: right;
+}
+.booking-management .booking-table tbody tr:hover {
+  background: var(--greyBg);
+}
+.booking-management .booking-table .action-btn {
+  padding: 0.3rem 0.8rem;
+  margin-left: 0.5rem;
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  font-size: 12px;
+}
+.booking-management .booking-table .action-btn.view-btn {
+  background: var(--colorOne);
+  color: var(--whiteColor);
+}
+.booking-management .booking-table .action-btn.view-btn:hover {
+  background: hsl(15, 74%, 60%);
+}
+.booking-management .booking-table .action-btn.edit-btn {
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+}
+.booking-management .booking-table .action-btn.edit-btn:hover {
+  background: var(--HoverColor);
+}
+.booking-management .booking-table .action-btn.delete-btn {
+  background: hsl(0, 100%, 60%);
+  color: var(--whiteColor);
+}
+.booking-management .booking-table .action-btn.delete-btn:hover {
+  background: hsl(0, 100%, 50%);
+}
+
+.booking-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+.booking-form-overlay .booking-form-container {
+  background: var(--whiteColor);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: var(--boxShadow);
+}
+.booking-form-overlay .booking-form-container h3 {
+  font-size: 20px;
+  color: var(--blackColor);
+  margin-bottom: 1.5rem;
+}
+.booking-form-overlay .booking-form-container .form-group {
+  margin-bottom: 1rem;
+}
+.booking-form-overlay .booking-form-container .form-group label {
+  display: block;
+  font-size: 13px;
+  color: var(--blackColor);
+  margin-bottom: 0.3rem;
+}
+.booking-form-overlay .booking-form-container .form-group input,
+.booking-form-overlay .booking-form-container .form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--borderColor);
+  border-radius: 3rem;
+  background: var(--inputColor);
+  font-size: 13px;
+  color: var(--blackColor);
+}
+.booking-form-overlay .booking-form-container .form-group input:disabled,
+.booking-form-overlay .booking-form-container .form-group select:disabled {
+  background: var(--greyBg);
+  color: var(--greyText);
+}
+.booking-form-overlay .booking-form-container .form-group input::-moz-placeholder, .booking-form-overlay .booking-form-container .form-group select::-moz-placeholder {
+  color: var(--greyText);
+  opacity: 0.5;
+}
+.booking-form-overlay .booking-form-container .form-group input::placeholder,
+.booking-form-overlay .booking-form-container .form-group select::placeholder {
+  color: var(--greyText);
+  opacity: 0.5;
+}
+.booking-form-overlay .booking-form-container .save-btn {
+  padding: 0.5rem 1.5rem;
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+.booking-form-overlay .booking-form-container .save-btn:hover {
+  background: var(--HoverColor);
+}
+.booking-form-overlay .booking-form-container .cancel-btn {
+  padding: 0.5rem 1.5rem;
+  background: var(--greyBg);
+  color: var(--blackColor);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+.booking-form-overlay .booking-form-container .cancel-btn:hover {
+  background: hsl(0, 0%, 90%);
+}
+
+.search-flight-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.search-flight-page .search {
+  margin-top: 120px;
+  padding: 2rem 0;
+}
+.search-flight-page .search .searchInputs {
+  padding: 2rem;
+  background: var(--greyBg);
+  border-radius: 2rem;
+}
+.search-flight-page .popular-flights,
+.search-flight-page .trending-cities {
+  padding: 2rem;
+}
+.search-flight-page .footer {
+  margin-top: auto;
+}
+
+.popular-flights {
+  padding: 2rem;
+  background: var(--whiteColor);
+}
+.popular-flights .popular-flights-container {
+  max-width: 70%;
+  margin: 0 auto;
+}
+.popular-flights h2 {
+  font-size: 24px;
+  color: var(--blackColor);
+  margin-bottom: 0.5rem;
+}
+.popular-flights p {
+  font-size: 14px;
+  color: var(--greyText);
+  margin-bottom: 1rem;
+}
+.popular-flights .tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.popular-flights .tabs button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--greyBg);
+  border-radius: 3rem;
+  background: var(--whiteColor);
+  cursor: pointer;
+  font-size: 14px;
+}
+.popular-flights .tabs button.active {
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border-color: var(--PrimaryColor);
+}
+.popular-flights .tabs button:hover {
+  background: var(--SecondaryColor);
+}
+.popular-flights .flight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+}
+.popular-flights .flight-grid .flight-card {
+  border: 1px solid var(--greyBg);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.popular-flights .flight-grid .flight-card img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1rem;
+}
+.popular-flights .flight-grid .flight-card .flight-info {
+  padding: 0.2rem;
+}
+.popular-flights .flight-grid .flight-card .flight-info h4 {
+  font-size: 14px;
+  color: var(--blackColor);
+  margin-bottom: 0.2rem;
+}
+.popular-flights .flight-grid .flight-card .flight-info p {
+  font-size: 11px;
+  color: var(--greyText);
+}
+
+.trending-cities {
+  padding: 2rem;
+  background: var(--whiteColor);
+}
+.trending-cities .trending-cities-container {
+  max-width: 70%;
+  margin: 0 auto;
+}
+.trending-cities h2 {
+  font-size: 24px;
+  color: var(--blackColor);
+  margin-bottom: 0.5rem;
+}
+.trending-cities p {
+  font-size: 14px;
+  color: var(--greyText);
+  margin-bottom: 1rem;
+}
+.trending-cities .city-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+}
+.trending-cities .city-grid .city-card {
+  border: 1px solid var(--greyBg);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.trending-cities .city-grid .city-card img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1rem;
+}
+.trending-cities .city-grid .city-card .city-info {
+  padding: 0.2rem;
+}
+.trending-cities .city-grid .city-card .city-info h4 {
+  font-size: 14px;
+  color: var(--blackColor);
+  margin-bottom: 0.2rem;
+}
+.trending-cities .city-grid .city-card .city-info p {
+  font-size: 11px;
+  color: var(--greyText);
+}
+
+.faq {
+  padding: 2rem;
+  background: var(--whiteColor);
+}
+.faq .faq-container {
+  max-width: 50%;
+  margin: 0 auto;
+}
+.faq h2 {
+  font-size: 24px;
+  color: var(--blackColor);
+  margin-bottom: 0.5rem;
+}
+.faq p {
+  font-size: 14px;
+  color: var(--greyText);
+  margin-bottom: 1.5rem;
+}
+.faq .faq-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.faq .faq-list .faq-item {
+  border: 1px solid var(--greyBg);
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+.faq .faq-list .faq-item .faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  background: var(--whiteColor);
+}
+.faq .faq-list .faq-item .faq-question h4 {
+  font-size: 14px;
+  color: var(--blackColor);
+}
+.faq .faq-list .faq-item .faq-question .toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--greyText);
+  transition: transform 0.3s ease;
+}
+.faq .faq-list .faq-item .faq-question .toggle-btn.open {
+  transform: rotate(180deg);
+}
+.faq .faq-list .faq-item .faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 1rem;
+}
+.faq .faq-list .faq-item .faq-answer p {
+  font-size: 12px;
+  color: var(--greyText);
+  line-height: 1.5;
+}
+.faq .faq-list .faq-item .faq-answer.open {
+  max-height: 200px;
+  padding: 1rem;
 }/*# sourceMappingURL=main.css.map */

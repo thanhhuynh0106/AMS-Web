@@ -14,23 +14,23 @@ const Lounge = () => {
     <div className='lounge container section'>
       <div className="sectionContainer grid">
 
-        <div data-aos='fade-left' data-aos-duration='2500' className="imgDiv">
+        <div  className="imgDiv">
           <img src={imgGrid}/>
         </div>
 
         <div className="textDiv">
-          <h2 data-aos='fade-down' data-aos-duration='2500'>Unaccompanied Minor Lounge</h2>
+          <h2 >Unaccompanied Minor Lounge</h2>
 
           <div className="grids gird">
-            <div data-aos='fade-down' data-aos-duration='2500' className="singleGrid">
+            <div className="singleGrid">
               <span className='gridTitle'>Help through the airport</span>
               <p>We provide assistance through the airport, including check-in, security, and boarding.</p>
             </div>
-            <div data-aos='fade-down' data-aos-duration='3500' className="singleGrid">
+            <div  className="singleGrid">
               <span className='gridTitle'>Care on the flight</span>
               <p>We provide assistance through the airport, including check-in, security, and boarding.</p>
             </div>
-            <div data-aos='fade-down' data-aos-duration='4500' className="singleGrid">
+            <div  className="singleGrid">
               <span className='gridTitle'>Priority boarding</span>
               <p>We provide assistance through the airport, including check-in, security, and boarding.</p>
             </div>
