@@ -6,6 +6,7 @@ import SignupPage from "./pages/SignupPage";
 import AdminPage from "./pages/AdminPage";
 import SearchFlightPage from "./pages/SearchFlightPage";
 import SearchResultPage from "./pages/SearchResultPage";
+import BookingPage from "./pages/BookingPage";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/search" element={<SearchFlightPage />} />
         <Route path="/result" element={<SearchResultPage />} />
+        <Route path="/booking" element={<BookingPage />} />
       </Routes>
     </Router>
   );

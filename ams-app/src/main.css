@@ -2286,4 +2286,334 @@ h2 {
 }
 .flight-detail-modal .modal-box .footer .select-btn:hover {
   background: #0052cc;
+}
+
+.booking-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+}
+.booking-page .booking-container {
+  width: 90%;
+  display: flex;
+  padding: 7rem;
+  gap: 2rem;
+  margin-top: 60px;
+  flex: 1;
+  justify-content: center;
+  font-size: 12px;
+}
+.booking-page .booking-container .left-panel,
+.booking-page .booking-container .right-panel {
+  border: 1px solid var(--greyBg);
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: white;
+}
+.booking-page .booking-container .left-panel {
+  flex: 2;
+  width: 70%;
+}
+.booking-page .booking-container .left-panel h1 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.booking-page .booking-container .left-panel h2 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.booking-page .booking-container .left-panel .flight-info {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.booking-page .booking-container .left-panel .flight-info .flight-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--greyBg);
+  padding: 1rem;
+  width: 100%;
+  border: 1px solid var(--borderColor);
+  border-radius: 1rem;
+}
+.booking-page .booking-container .left-panel .flight-info .flight-item .flight-details {
+  flex: 1;
+}
+.booking-page .booking-container .left-panel .flight-info .flight-item .flight-details p {
+  font-size: 12px;
+  margin: 0.1rem 0;
+}
+.booking-page .booking-container .left-panel .flight-info .flight-item .flight-details p:first-child {
+  font-weight: 600;
+}
+.booking-page .booking-container .left-panel .flight-info .flight-item .view-details-btn {
+  padding: 0.2rem 0.8rem;
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.booking-page .booking-container .left-panel .flight-info .flight-item .view-details-btn:hover {
+  background: var(--HoverColor);
+}
+.booking-page .booking-container .left-panel .baggage-section {
+  margin-top: 1rem;
+  border: 1px solid var(--borderColor);
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: var(--boxShadow);
+  line-height: 1.5rem;
+}
+.booking-page .booking-container .left-panel .baggage-section h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.booking-page .booking-container .left-panel .baggage-section p {
+  font-size: 12px;
+  color: var(--greyText);
+  margin-bottom: 1rem;
+}
+.booking-page .booking-container .left-panel .baggage-section .baggage-details {
+  margin-bottom: 1rem;
+}
+.booking-page .booking-container .left-panel .baggage-section .baggage-details .flight-baggage {
+  margin-bottom: 1rem;
+}
+.booking-page .booking-container .left-panel .baggage-section .baggage-details .flight-baggage h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.booking-page .booking-container .left-panel .baggage-section .baggage-details .flight-baggage ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.booking-page .booking-container .left-panel .baggage-section .baggage-details .flight-baggage ul li {
+  font-size: 12px;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.booking-page .booking-container .left-panel .baggage-section .baggage-details .flight-baggage ul li .baggage-icon {
+  font-size: 14px;
+}
+.booking-page .booking-container .left-panel .baggage-section .baggage-details .flight-baggage .view-baggage-btn {
+  font-size: 12px;
+  color: #0064e0;
+  text-decoration: none;
+}
+.booking-page .booking-container .left-panel .baggage-section .baggage-details .flight-baggage .view-baggage-btn:hover {
+  text-decoration: underline;
+}
+.booking-page .booking-container .left-panel .baggage-section .baggage-note {
+  font-size: 10px;
+  color: var(--greyText);
+  margin-bottom: 0;
+}
+.booking-page .booking-container .left-panel .baggage-section .baggage-note a {
+  color: #0064e0;
+  text-decoration: none;
+}
+.booking-page .booking-container .left-panel .baggage-section .baggage-note a:hover {
+  text-decoration: underline;
+}
+.booking-page .booking-container .left-panel .payment-section {
+  margin-top: 1rem;
+  border: 1px solid var(--borderColor);
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
+  box-shadow: var(--boxShadow);
+}
+.booking-page .booking-container .left-panel .payment-section h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.booking-page .booking-container .left-panel .payment-section p {
+  font-size: 12px;
+  color: var(--greyText);
+  margin-bottom: 1rem;
+}
+.booking-page .booking-container .left-panel .payment-section .payment-options {
+  margin-bottom: 1rem;
+}
+.booking-page .booking-container .left-panel .payment-section .payment-options span {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.booking-page .booking-container .left-panel .payment-section .payment-options .card-logos {
+  display: flex;
+  gap: 0.5rem;
+}
+.booking-page .booking-container .left-panel .payment-section .payment-options .card-logos .card-logo {
+  width: 30px;
+  height: 30px;
+  margin: 0 0.5rem;
+}
+.booking-page .booking-container .left-panel .payment-section .payment-form {
+  margin-bottom: 1rem;
+}
+.booking-page .booking-container .left-panel .payment-section .payment-form label {
+  font-size: 12px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.booking-page .booking-container .left-panel .payment-section .payment-form input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 12px;
+  border: 1px solid var(--borderColor);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.booking-page .booking-container .left-panel .payment-section .payment-form .expiration-cvc {
+  display: flex;
+  gap: 1rem;
+}
+.booking-page .booking-container .left-panel .payment-section .payment-form .expiration-cvc div {
+  flex: 1;
+}
+.booking-page .booking-container .left-panel .terms {
+  padding-top: 2rem;
+  font-size: 12px;
+  color: var(--greyText);
+  margin-bottom: 1rem;
+}
+.booking-page .booking-container .left-panel .payment-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.booking-page .booking-container .left-panel .payment-buttons .back-btn {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+.booking-page .booking-container .left-panel .payment-buttons .pay-now-btn {
+  padding: 0.5rem 1rem;
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative;
+}
+.booking-page .booking-container .left-panel .payment-buttons .pay-now-btn:before {
+  margin-right: 0.3rem;
+}
+.booking-page .booking-container .left-panel .payment-buttons .pay-now-btn:hover {
+  background: var(--HoverColor);
+}
+.booking-page .booking-container .left-panel .contact-details,
+.booking-page .booking-container .left-panel .traveler-details {
+  margin-bottom: 1rem;
+  border: 1px solid var(--borderColor);
+  border-radius: 2rem;
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+.booking-page .booking-container .left-panel .contact-details h3,
+.booking-page .booking-container .left-panel .traveler-details h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.booking-page .booking-container .left-panel .contact-details p,
+.booking-page .booking-container .left-panel .traveler-details p {
+  font-size: 14px;
+  margin: 0.2rem 0;
+}
+.booking-page .booking-container .right-panel {
+  flex: 1;
+  width: 30%;
+}
+.booking-page .booking-container .right-panel .price-details h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.booking-page .booking-container .right-panel .price-details .price-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 0.5rem;
+  color: var(--blackColor);
+}
+.booking-page .booking-container .right-panel .price-details .price-item span:last-child {
+  font-weight: 600;
+}
+.booking-page .booking-container .right-panel .price-details .toggle-breakdown-btn {
+  padding: 1.5rem 1rem;
+  background: none;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--blackColor);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: transform 0.3s ease;
+  margin-top: -1rem;
+  margin-left: auto;
+}
+.booking-page .booking-container .right-panel .price-details .toggle-breakdown-btn::before {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  transform: rotate(90deg);
+}
+.booking-page .booking-container .right-panel .price-details .toggle-breakdown-btn.expanded::before {
+  transform: rotate(270deg);
+}
+.booking-page .booking-container .right-panel .price-details .toggle-breakdown-btn:hover {
+  color: var(--HoverColor);
+}
+.booking-page .booking-container .right-panel .price-details .price-breakdown {
+  display: none;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--greyBg);
+}
+.booking-page .booking-container .right-panel .price-details .price-breakdown.show {
+  display: block;
+}
+.booking-page .booking-container .right-panel .price-details .price-breakdown .breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 0.3rem;
+  color: var(--greyText);
+}
+.booking-page .booking-container .right-panel .price-details .total {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--greyBg);
+  font-size: 12px;
+}
+.booking-page .booking-container .right-panel .price-details .total span {
+  display: block;
+}
+.booking-page .booking-container .right-panel .price-details .total span:first-child {
+  font-weight: 600;
+}
+.booking-page .booking-container .right-panel .price-details .total span:nth-child(2) {
+  color: var(--blackColor);
+  font-weight: 600;
+  margin: 0.3rem 0;
+}
+.booking-page .booking-container .right-panel .price-details .total span:nth-child(3), .booking-page .booking-container .right-panel .price-details .total span:nth-child(4) {
+  color: var(--greyText);
+  font-size: 10px;
 }/*# sourceMappingURL=main.css.map */

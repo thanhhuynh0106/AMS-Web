@@ -2779,3 +2779,399 @@ h2 {
     }
   }
 }
+
+
+// Booking page =================>
+.booking-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+
+  .booking-container {
+    width: 90%;
+    display: flex;
+    padding: 7rem;
+    gap: 2rem;
+    margin-top: 60px;
+    flex: 1;
+    justify-content: center;
+    font-size: 12px;
+
+    .left-panel,
+    .right-panel {
+      border: 1px solid var(--greyBg);
+      border-radius: 8px;
+      padding: 1rem;
+      background-color: white;
+    }
+
+    .left-panel {
+      flex: 2;
+      width: 70%;
+
+      h1 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      h2 {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .flight-info {
+        margin-bottom: 1rem;
+        width: 100%;
+
+        .flight-item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1rem;
+          border-bottom: 1px solid var(--greyBg);
+          padding: 1rem;
+          width: 100%; 
+          border: 1px solid var(--borderColor);
+          border-radius: 1rem;
+
+          .flight-details {
+            flex: 1;
+
+            p {
+              font-size: 12px;
+              margin: 0.1rem 0; 
+
+              &:first-child {
+                font-weight: 600;
+              }
+            }
+          }
+
+          .view-details-btn {
+            padding: 0.2rem 0.8rem;
+            background: var(--PrimaryColor);
+            color: var(--whiteColor);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px; 
+
+            &:hover {
+              background: var(--HoverColor);
+            }
+          }
+        }
+      }
+
+      .baggage-section {
+        margin-top: 1rem;
+        border: 1px solid var(--borderColor);
+        border-radius: 2rem;
+        padding: 2rem;
+        box-shadow: var(--boxShadow);
+        line-height: 1.5rem;
+
+        h2 {
+          font-size: 16px;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          font-size: 12px;
+          color: var(--greyText);
+          margin-bottom: 1rem;
+        }
+
+        .baggage-details {
+          margin-bottom: 1rem;
+
+          .flight-baggage {
+            margin-bottom: 1rem;
+
+            h3 {
+              font-size: 14px;
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+            }
+
+            ul {
+              list-style: none;
+              padding-left: 0;
+              margin: 0;
+
+              li {
+                font-size: 12px;
+                margin-bottom: 0.3rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+
+                .baggage-icon {
+                  font-size: 14px;
+                }
+              }
+            }
+
+            .view-baggage-btn {
+              font-size: 12px;
+              color: #0064e0;
+              text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+
+        .baggage-note {
+          font-size: 10px;
+          color: var(--greyText);
+          margin-bottom: 0;
+
+          a {
+            color: #0064e0;
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      .payment-section {
+        margin-top: 1rem;
+        border: 1px solid var(--borderColor);
+        border-radius: 2rem;
+        padding: 1rem  1.5rem;
+        box-shadow: var(--boxShadow);
+
+        h2 {
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+        p {
+          font-size: 12px;
+          color: var(--greyText);
+          margin-bottom: 1rem;
+        }
+
+        .payment-options {
+          margin-bottom: 1rem;
+
+          span {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+          }
+
+          .card-logos {
+            display: flex;
+            gap: 0.5rem;
+
+            .card-logo {
+              width: 30px;
+              height: 30px;
+              margin: 0 0.5rem;
+            }
+          }
+        }
+
+        .payment-form {
+          margin-bottom: 1rem;
+
+          label {
+            font-size: 12px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.3rem;
+          }
+
+          input {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 12px;
+            border: 1px solid var(--borderColor);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+          }
+
+          .expiration-cvc {
+            display: flex;
+            gap: 1rem;
+
+            div {
+              flex: 1;
+            }
+          }
+        }
+      }
+      .terms {
+        padding-top: 2rem;
+          font-size: 12px;
+          color: var(--greyText);
+          margin-bottom: 1rem;
+        }
+
+        .payment-buttons {
+          display: flex;
+          justify-content: space-between;
+
+          .back-btn {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: none;
+            font-size: 12px;
+            cursor: pointer;
+          }
+
+          .pay-now-btn {
+            padding: 0.5rem 1rem;
+            background: var(--PrimaryColor);
+            color: var(--whiteColor);
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            position: relative;
+
+            &:before {
+              
+              margin-right: 0.3rem;
+            }
+
+            &:hover {
+              background: var(--HoverColor);
+            }
+          }
+        }
+
+      .contact-details,
+      .traveler-details {
+        margin-bottom: 1rem;
+        border: 1px solid var(--borderColor);
+        border-radius: 2rem;
+        padding: 2rem;
+        margin-top: 1.5rem;
+
+        h3 {
+          font-size: 16px;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          font-size: 14px;
+          margin: 0.2rem 0;
+        }
+      }
+    }
+
+    .right-panel {
+      flex: 1;
+      width: 30%;
+
+      .price-details {
+        h3 {
+          font-size: 16px;
+          font-weight: 600;
+          margin-bottom: 1rem;
+        }
+
+        .price-item {
+          display: flex;
+          justify-content: space-between;
+          font-size: 12px; 
+          margin-bottom: 0.5rem;
+          color: var(--blackColor);
+
+          span:last-child {
+            font-weight: 600;
+          }
+        }
+
+        .toggle-breakdown-btn {
+            padding: 1.5rem 1rem;
+          background: none;
+          border: none;
+          font-size: 12px;
+          cursor: pointer;
+          color: var(--blackColor);
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          transition: transform 0.3s ease;
+          margin-top: -1rem;
+          margin-left: auto;
+
+          &::before {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            transform: rotate(90deg);
+          }
+
+          &.expanded::before {
+            transform: rotate(270deg);
+          }
+
+          &:hover {
+            color: var(--HoverColor);
+          }
+        }
+
+        .price-breakdown {
+          display: none;
+          margin-top: 0.5rem;
+          padding-top: 0.5rem;
+          border-top: 1px solid var(--greyBg);
+
+          &.show {
+            display: block; 
+          }
+
+          .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 0.3rem;
+            color: var(--greyText);
+          }
+        }
+
+        .total {
+          margin-top: 1rem;
+          padding-top: 1rem;
+          border-top: 1px solid var(--greyBg);
+          font-size: 12px;
+
+          span {
+            display: block;
+
+            &:first-child {
+              font-weight: 600;
+            }
+
+            &:nth-child(2) {
+              color: var(--blackColor);
+              font-weight: 600;
+              margin: 0.3rem 0;
+            }
+
+            &:nth-child(3),
+            &:nth-child(4) {
+              color: var(--greyText);
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
