@@ -7,6 +7,7 @@ import AdminPage from "./pages/AdminPage";
 import SearchFlightPage from "./pages/SearchFlightPage";
 import SearchResultPage from "./pages/SearchResultPage";
 import BookingPage from "./pages/BookingPage";
+import UserProfilePage from "./pages/UserProfilePage";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/search" element={<SearchFlightPage />} />
         <Route path="/result" element={<SearchResultPage />} />
         <Route path="/booking" element={<BookingPage />} />
+        <Route path="/profile" element={<UserProfilePage/>} />
       </Routes>
     </Router>
   );
