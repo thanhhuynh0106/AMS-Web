@@ -55,10 +55,13 @@ const Navbar = () => {
 
                 <div className={`navBarMenu ${active ? "showNavBar" : ""}`}>
                     <ul className="menu flex">
-                        <li className="listItem">Home</li>
-                        <li className="listItem">About</li>
+                        <li className="listItem">
+                            <Link to='/'>Home</Link>
+                        </li>
+                        <li className="listItem">
+                            <Link to='/search'>Search</Link>
+                        </li>
                         <li className="listItem">Offers</li>
-                        <li className="listItem">Seats</li>
                         <li className="listItem">Destinations</li>
                     </ul>
 

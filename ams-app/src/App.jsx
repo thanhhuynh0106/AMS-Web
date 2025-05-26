@@ -8,6 +8,8 @@ import SearchFlightPage from "./pages/SearchFlightPage";
 import SearchResultPage from "./pages/SearchResultPage";
 import BookingPage from "./pages/BookingPage";
 import UserProfilePage from "./pages/UserProfilePage";
+import ChatWidget from "./components/chatbot/ChatWidget";
+import ChatbotPage from "./pages/ChatbotPage";
 
 const App = () => {
   return (
@@ -21,7 +23,9 @@ const App = () => {
         <Route path="/result" element={<SearchResultPage />} />
         <Route path="/booking" element={<BookingPage />} />
         <Route path="/profile" element={<UserProfilePage/>} />
+        <Route path="/chat" element={<ChatbotPage />} />
       </Routes>
+      <ChatWidget />
     </Router>
   );
 };

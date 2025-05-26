@@ -13,7 +13,6 @@ const HomePage = () => {
     <>
       <Navbar />
       <Home />
-      <Search />
       <Support />
       <Info />
       <Lounge />
