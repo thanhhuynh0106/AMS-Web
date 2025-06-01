@@ -10,6 +10,9 @@ import BookingPage from "./pages/BookingPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import ChatWidget from "./components/chatbot/ChatWidget";
 import ChatbotPage from "./pages/ChatbotPage";
+import HelpCenter from "./components/support/HelpCenter";
+import ExplorePage from "./pages/ExplorePage";
+import AboutPage from "./pages/AboutPage";
 
 const App = () => {
   return (
@@ -24,6 +27,9 @@ const App = () => {
         <Route path="/booking" element={<BookingPage />} />
         <Route path="/profile" element={<UserProfilePage/>} />
         <Route path="/chat" element={<ChatbotPage />} />
+        <Route path="/help" element={<HelpCenter />} />
+        <Route path="/explore" element={<ExplorePage />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
       <ChatWidget />
     </Router>

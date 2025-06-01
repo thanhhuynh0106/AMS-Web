@@ -2618,98 +2618,1035 @@ h2 {
   font-size: 10px;
 }
 
-.user-profile-page .navBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  z-index: 2000;
-}
-.user-profile-page .profile-container {
-  display: flex;
-  padding: 7rem;
-  margin-top: 60px;
-}
-.user-profile-page .profile-container .user-sidebar {
-  width: 200px;
+.user-profile-page-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  border-right: 1px solid var(--greyBg);
-  padding-right: 1rem;
+  min-height: 100vh;
 }
-.user-profile-page .profile-container .user-sidebar button {
-  background: none;
-  border: none;
+
+.user-profile-page {
+  display: flex;
+  flex: 1;
+  padding-top: 120px;
+}
+.user-profile-page .user-profile-content {
+  margin-left: 250px;
+  width: 100%;
+  background: var(--whiteColor);
+  padding-bottom: 80px;
+}
+.user-profile-page .user-profile-content .section {
+  padding: 2rem;
+}
+.user-profile-page .user-profile-content .section h2 {
+  font-size: 25px;
+  padding: 1rem 0;
+  color: var(--blackColor);
+}
+.user-profile-page .user-profile-content .section p {
+  font-size: 13px;
+  color: var(--greyText);
+  line-height: 22px;
+}
+
+.user-profile-sidebar {
+  width: 250px;
+  height: calc(100vh - 120px);
+  position: fixed;
+  top: 120px;
+  left: 0;
+  z-index: 1000;
+  color: var(--whiteColor);
+}
+.user-profile-sidebar .sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 1rem;
+}
+.user-profile-sidebar .sidebar-header .logoDiv {
+  width: 30px;
+  margin-right: 0.5rem;
+}
+.user-profile-sidebar .sidebar-header .logoDiv .logo {
+  width: 100%;
+}
+.user-profile-sidebar .sidebar-header .sidebar-title {
   font-size: 16px;
-  text-align: left;
+  font-weight: 700;
+  color: var(--whiteColor);
+}
+.user-profile-sidebar .sidebar-menu {
+  margin-top: 1rem;
+  padding-right: 20px;
+  border-right: 1px solid var(--borderColor);
+}
+.user-profile-sidebar .sidebar-menu .sidebar-section-title {
+  padding: 0.8rem 1rem;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blackColor);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+.user-profile-sidebar .sidebar-menu .sidebar-item {
+  padding: 0.8rem 1rem 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
   cursor: pointer;
+  transition: var(--transition);
+}
+.user-profile-sidebar .sidebar-menu .sidebar-item .icon {
+  font-size: 1.2rem;
+  margin-right: 0.8rem;
+  color: var(--blackColor);
+}
+.user-profile-sidebar .sidebar-menu .sidebar-item:hover {
+  background: var(--HoverColor);
+  color: var(--whiteColor);
+  border-radius: 2rem;
+}
+.user-profile-sidebar .sidebar-menu .sidebar-item.active {
+  background: var(--HoverColor);
+  color: var(--whiteColor);
+  border-radius: 2rem;
+}
+.user-profile-sidebar .sidebar-menu .sidebar-item.active .icon {
+  color: var(--whiteColor);
+}
+
+.personal-info h2 {
+  font-size: 25px;
+  color: var(--blackColor);
+  margin-bottom: 1.5rem;
+}
+.personal-info .info-form {
+  max-width: 600px;
+}
+.personal-info .info-form .form-group {
+  margin-bottom: 1.5rem;
+}
+.personal-info .info-form .form-group label {
+  display: block;
+  font-size: 14px;
+  color: var(--blackColor);
+  margin-bottom: 0.5rem;
+}
+.personal-info .info-form .form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--borderColor);
+  border-radius: 3rem;
+  background: var(--inputColor);
+  font-size: 13px;
+  color: var(--blackColor);
+}
+.personal-info .info-form .form-group input:disabled {
+  background: var(--greyBg);
   color: var(--greyText);
 }
-.user-profile-page .profile-container .user-sidebar button.active {
-  color: var(--PrimaryColor);
-  font-weight: bold;
+.personal-info .info-form .form-actions {
+  display: flex;
+  gap: 1rem;
 }
-.user-profile-page .profile-container .user-sidebar button:hover {
-  color: var(--HoverColor);
+.personal-info .info-form .form-actions .save-btn,
+.personal-info .info-form .form-actions .edit-btn {
+  padding: 0.5rem 1.5rem;
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
 }
-.user-profile-page .profile-container .profile-content {
-  flex: 1;
-  padding-left: 2rem;
+.personal-info .info-form .form-actions .save-btn:hover,
+.personal-info .info-form .form-actions .edit-btn:hover {
+  background: var(--HoverColor);
 }
-.user-profile-page .profile-container .profile-content .profile-info,
-.user-profile-page .profile-container .profile-content .booking-history {
+.personal-info .info-form .form-actions .cancel-btn {
+  padding: 0.5rem 1.5rem;
+  background: var(--greyBg);
+  color: var(--blackColor);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+.personal-info .info-form .form-actions .cancel-btn:hover {
+  background: hsl(0, 0%, 90%);
+}
+
+.change-password h2 {
+  font-size: 25px;
+  color: var(--blackColor);
+  margin-bottom: 1.5rem;
+}
+.change-password .password-form {
+  max-width: 600px;
+}
+.change-password .password-form .form-group {
+  margin-bottom: 1.5rem;
+}
+.change-password .password-form .form-group label {
+  display: block;
+  font-size: 14px;
+  color: var(--blackColor);
+  margin-bottom: 0.5rem;
+}
+.change-password .password-form .form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--borderColor);
+  border-radius: 3rem;
+  background: var(--inputColor);
+  font-size: 13px;
+  color: var(--blackColor);
+}
+.change-password .password-form .save-btn {
+  padding: 0.5rem 1.5rem;
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+.change-password .password-form .save-btn:hover {
+  background: var(--HoverColor);
+}
+
+.transaction-history h2 {
+  font-size: 25px;
+  color: var(--blackColor);
+  margin-bottom: 1.5rem;
+}
+.transaction-history .transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  max-width: 800px;
+}
+.transaction-history .transaction-table thead {
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+}
+.transaction-history .transaction-table thead th {
+  padding: 0.8rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--whiteColorDeam);
+}
+.transaction-history .transaction-table tbody tr {
+  border-bottom: 1px solid var(--borderColor);
+}
+.transaction-history .transaction-table tbody tr td {
+  padding: 0.8rem;
+  color: var(--blackColor);
+  font-size: 13px;
+}
+.transaction-history .transaction-table tbody tr:hover {
+  background: var(--greyBg);
+}
+.transaction-history p {
+  font-size: 14px;
+  color: var(--greyText);
+}
+
+.chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+.chat-widget .chat-toggle-btn {
+  background: var(--PrimaryColor);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 0.8rem;
+  cursor: pointer;
+  font-size: 20px;
+}
+.chat-widget .chat-window {
+  width: 440px;
+  height: 510px;
+  background: white;
   border: 1px solid var(--greyBg);
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  margin-top: 10px;
+}
+.chat-widget .chat-window .chat-header {
+  padding: 1rem;
+  background: var(--PrimaryColor);
+  color: white;
+  font-weight: bold;
+}
+.chat-widget .chat-window .chat-messages {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.chat-widget .chat-window .chat-messages .message {
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  max-width: 80%;
+  font-size: 14px;
+}
+.chat-widget .chat-window .chat-messages .message.user {
+  background: #e0f7fa;
+  align-self: flex-end;
+}
+.chat-widget .chat-window .chat-messages .message.bot {
+  background: #f1f1f1;
+  align-self: flex-start;
+}
+.chat-widget .chat-window .chat-input {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+.chat-widget .chat-window .chat-input input {
+  flex: 1;
+  border: none;
+  padding: 0.75rem;
+  font-size: 14px;
+  outline: none;
+}
+.chat-widget .chat-window .chat-input button {
+  background: var(--PrimaryColor);
+  color: white;
+  border: none;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+.chatbot-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.chatbot-page {
+  display: flex;
+  flex: 1;
+  margin-top: 4rem;
+}
+.chatbot-page .chat-sidebar {
+  width: 300px;
+  background-color: #fff;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  position: fixed;
+  top: 7rem;
+  height: calc(100vh - 6.5rem);
+}
+.chatbot-page .chat-sidebar .sidebar-header {
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+.chatbot-page .chat-sidebar .sidebar-header .today-label {
+  font-size: 12px;
+  color: #9ca3af;
+}
+.chatbot-page .chat-sidebar .chat-history {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 20px;
+}
+.chatbot-page .chat-sidebar .chat-history .chat-item {
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+.chatbot-page .chat-sidebar .chat-history .chat-item:hover {
+  background-color: #f0f0f0;
+}
+.chatbot-page .chat-sidebar .new-conversation-btn {
+  background-color: var(--PrimaryColor);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.chatbot-page .chat-sidebar .new-conversation-btn:hover {
+  background-color: var(--HoverColor);
+}
+.chatbot-page .chat-panel {
+  margin-left: 300px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.chatbot-page .chat-panel .chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+.chatbot-page .chat-panel .chat-messages .message {
+  padding: 12px 16px;
+  border-radius: 8px;
+  word-wrap: break-word;
+  line-height: 1.4;
+  max-width: 70%;
+}
+.chatbot-page .chat-panel .chat-messages .bot {
+  align-self: flex-start;
+  background-color: #e5e7eb;
+  color: #333;
+}
+.chatbot-page .chat-panel .chat-messages .user {
+  align-self: flex-end;
+  background-color: #007aff;
+  color: white;
+}
+.chatbot-page .chat-panel .chat-input {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  background-color: white;
+  border: 1px solid var(--borderColor);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin-top: 10px;
+  position: sticky;
+  width: 70%;
+  margin: 0 auto;
+}
+.chatbot-page .chat-panel .chat-input input {
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #333;
+}
+.chatbot-page .chat-panel .chat-input input::-moz-placeholder {
+  color: #9ca3af;
+}
+.chatbot-page .chat-panel .chat-input input::placeholder {
+  color: #9ca3af;
+}
+.chatbot-page .chat-panel .chat-footer {
+  font-size: 12px;
+  color: #9ca3af;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.help-center {
+  padding-top: 9.5rem;
+  padding-bottom: 2rem;
+  width: 50%;
+  font-size: 14px;
+  margin: 0 auto;
+  color: #222;
+}
+.help-center .warning-box {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 4px solid #ffa500;
+}
+.help-center .warning-box strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.help-center .warning-box a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--PrimaryColor);
+  font-size: 13px;
+}
+.help-center h1 {
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+}
+.help-center .subtext {
+  margin-bottom: 2rem;
+  color: #444;
+}
+.help-center .help-options {
+  background: #f9f9f9;
+  border-radius: 10px;
   padding: 1.5rem;
-  background: #fff;
-}
-.user-profile-page .profile-container .profile-content .profile-info h2,
-.user-profile-page .profile-container .profile-content .booking-history h2 {
-  font-size: 20px;
-  margin-bottom: 1rem;
-}
-.user-profile-page .profile-container .profile-content .profile-info form,
-.user-profile-page .profile-container .profile-content .booking-history form {
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.user-profile-page .profile-container .profile-content .profile-info form label,
-.user-profile-page .profile-container .profile-content .booking-history form label {
+.help-center .help-options .options-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.help-center .help-options .options-container .option {
+  flex: 1;
+}
+.help-center .help-options .options-container .option h4 {
+  font-size: 13px;
+}
+.help-center .help-options .options-container .option p {
+  font-size: 11px;
+}
+.help-center .help-options .btn-signin {
+  background: var(--PrimaryColor);
+  color: white;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.help-center .help-options .continue-link {
+  margin-top: 0.5rem;
+  font-size: 13px;
+  text-align: center;
+  color: var(--PrimaryColor);
+}
+.help-center .faq-section h2 {
+  font-size: 16px;
+  margin-bottom: 1rem;
+}
+.help-center .faq-section .tabs {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+.help-center .faq-section .tabs button {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #555;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.8rem 1.2rem;
+}
+.help-center .faq-section .tabs button svg {
+  font-size: 20px;
+  margin-bottom: 0.3rem;
+}
+.help-center .faq-section .tabs button span {
+  font-size: 12px;
+}
+.help-center .faq-section .tabs button:hover {
+  color: var(--PrimaryColor);
+}
+.help-center .faq-section .tabs button.active {
+  color: var(--PrimaryColor);
+  border-bottom: 2px solid var(--PrimaryColor);
+  font-weight: bold;
+  background: none;
+  border-radius: 0;
+}
+.help-center .faq-section .faq-list {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.help-center .faq-section .faq-list .faq-item {
+  background: #fff;
+  border: none;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+.help-center .faq-section .faq-list .faq-item:last-child {
+  border-bottom: none;
+}
+.help-center .faq-section .faq-list .faq-item .question {
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+}
+.help-center .faq-section .faq-list .faq-item .arrow-icon {
+  font-size: 18px;
+  color: #888;
+}
+.help-center .faq-section .faq-list .faq-item .answer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #eee;
+  background: #fcfcfc;
+  color: #555;
+  font-size: 13px;
+}
+.help-center .faq-section .faq-list .no-questions {
+  padding: 1rem;
+  color: #888;
+  font-style: italic;
+  text-align: center;
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  width: 70%;
+  margin: 0 auto;
+}
+.carousel-wrapper .carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  font-size: 13px;
+  padding: 1rem 0;
+}
+.carousel-wrapper .carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel-wrapper .carousel .card {
+  min-width: 180px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+}
+.carousel-wrapper .carousel .card img {
+  width: 100%;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.carousel-wrapper .carousel .card h4 {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 14px;
+}
+.carousel-wrapper .carousel .card p {
+  font-size: 12px;
+  color: #666;
+}
+.carousel-wrapper .nav {
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+}
+.carousel-wrapper .nav:hover {
+  background-color: #f0f0f0;
+  border-color: #999;
+  transform: scale(1.05);
+}
+.carousel-wrapper .nav.left {
+  left: -20px;
+}
+.carousel-wrapper .nav.right {
+  right: -20px;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+.filter-tabs button {
+  border: none;
+  padding: 0.5rem 1rem;
+  background: #f1f1f1;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.filter-tabs button.active {
+  background: var(--PrimaryColor);
+  color: white;
+}
+
+.explore-page {
+  padding-top: 9.5rem;
+  padding-bottom: 2rem;
+}
+
+.explore-vietnam h2, .explore-vietnam p, .trip-planner h2, .trip-planner p, .browse-by-type h2, .browse-by-type p, .deals-for-weekend h2, .deals-for-weekend p {
+  width: 70%;
+  margin: 0 auto;
+}
+.explore-vietnam h2, .trip-planner h2, .browse-by-type h2, .deals-for-weekend h2 {
+  font-size: 19px;
+}
+
+.trip-planner, .browse-by-type, .deals-for-weekend {
+  padding-top: 1.9rem;
+}
+
+.filter-tabs {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+.browse-by-type .carousel-wrapper, .deals-for-weekend .carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.browse-by-type .carousel-wrapper .carousel, .deals-for-weekend .carousel-wrapper .carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+}
+.browse-by-type .carousel-wrapper .carousel::-webkit-scrollbar, .deals-for-weekend .carousel-wrapper .carousel::-webkit-scrollbar {
+  display: none;
+}
+.browse-by-type .carousel-wrapper .carousel .card, .browse-by-type .carousel-wrapper .carousel .deal-card, .deals-for-weekend .carousel-wrapper .carousel .card, .deals-for-weekend .carousel-wrapper .carousel .deal-card {
+  width: 300px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+.browse-by-type .carousel-wrapper .carousel .card img, .browse-by-type .carousel-wrapper .carousel .deal-card img, .deals-for-weekend .carousel-wrapper .carousel .card img, .deals-for-weekend .carousel-wrapper .carousel .deal-card img {
+  width: 300px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.browse-by-type .carousel-wrapper .carousel .card h4, .deals-for-weekend .carousel-wrapper .carousel .card h4 {
+  text-align: left;
+  margin: 0.5rem 0;
+}
+.browse-by-type .carousel-wrapper .carousel .deal-card .content, .deals-for-weekend .carousel-wrapper .carousel .deal-card .content {
+  padding: 0.5rem 0;
+  text-align: left;
+}
+.browse-by-type .carousel-wrapper .carousel .deal-card .content p, .deals-for-weekend .carousel-wrapper .carousel .deal-card .content p {
+  font-size: 13px;
+  margin-bottom: 0.3rem;
+  text-align: left;
+}
+.browse-by-type .carousel-wrapper .carousel .deal-card .content h4, .deals-for-weekend .carousel-wrapper .carousel .deal-card .content h4 {
+  font-size: 13px;
+  margin-bottom: 0.3rem;
+  text-align: left;
+  padding-left: 0.5rem;
+}
+.browse-by-type .carousel-wrapper .carousel .deal-card .content .rating-tag, .deals-for-weekend .carousel-wrapper .carousel .deal-card .content .rating-tag {
+  display: flex;
+  gap: 0.4rem;
+  font-size: 12px;
+  padding: 0 0.5rem;
+}
+.browse-by-type .carousel-wrapper .carousel .deal-card .content .rating-tag .rating, .deals-for-weekend .carousel-wrapper .carousel .deal-card .content .rating-tag .rating {
+  background: var(--PrimaryColor);
+  color: #fff;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.browse-by-type .carousel-wrapper .carousel .deal-card .content .rating-tag .tag, .deals-for-weekend .carousel-wrapper .carousel .deal-card .content .rating-tag .tag {
+  background: #d4f4d2;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #006400;
+}
+.browse-by-type .carousel-wrapper .carousel .deal-card .content .price, .deals-for-weekend .carousel-wrapper .carousel .deal-card .content .price {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+  font-size: 11px;
+}
+.browse-by-type .carousel-wrapper .carousel .deal-card .content .price .old, .deals-for-weekend .carousel-wrapper .carousel .deal-card .content .price .old {
+  text-decoration: line-through;
+  color: red;
+}
+.browse-by-type .carousel-wrapper .carousel .deal-card .content .price .new, .deals-for-weekend .carousel-wrapper .carousel .deal-card .content .price .new {
+  font-weight: bold;
+  color: black;
+}
+.browse-by-type .carousel-wrapper .carousel .deal-card .content .nights, .deals-for-weekend .carousel-wrapper .carousel .deal-card .content .nights {
+  font-size: 11px;
+  color: gray;
+  right: 0;
+  margin-top: 0.2rem;
+  text-align: center;
+}
+.browse-by-type .carousel-wrapper .nav, .deals-for-weekend .carousel-wrapper .nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.browse-by-type .carousel-wrapper .nav.left, .deals-for-weekend .carousel-wrapper .nav.left {
+  left: -10px;
+}
+.browse-by-type .carousel-wrapper .nav.right, .deals-for-weekend .carousel-wrapper .nav.right {
+  right: -10px;
+}
+
+.top-unique-properties {
+  padding: 40px 0;
+  width: 70%;
+  margin: 0 auto;
+}
+.top-unique-properties h2 {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.top-unique-properties p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 24px;
+}
+.top-unique-properties .property-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.top-unique-properties .property-list .property-card {
+  flex: 0 0 23%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.top-unique-properties .property-list .property-card .property-image {
+  height: 160px;
+  background-color: #ddd;
+  border-bottom: 1px solid #eee;
+}
+.top-unique-properties .property-list .property-card .property-info {
+  padding: 12px;
+}
+.top-unique-properties .property-list .property-card .property-info h4 {
   font-size: 14px;
   font-weight: 600;
+  margin-bottom: 4px;
 }
-.user-profile-page .profile-container .profile-content .profile-info form input,
-.user-profile-page .profile-container .profile-content .booking-history form input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.top-unique-properties .property-list .property-card .property-info p {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 8px;
 }
-.user-profile-page .profile-container .profile-content .profile-info form button,
-.user-profile-page .profile-container .profile-content .booking-history form button {
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 0.5rem 1rem;
+.top-unique-properties .property-list .property-card .property-info .rating {
+  font-size: 11px;
+  color: #222;
+}
+.top-unique-properties .property-list .property-card .property-info .rating .score {
   background-color: var(--PrimaryColor);
   color: #fff;
-  border: none;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-right: 6px;
+  display: inline-block;
+}
+.top-unique-properties .property-list .property-card .property-info .rating span + span {
+  margin-left: 4px;
+}
+
+.homes-guests-love {
+  padding: 40px 0;
+  width: 70%;
+  margin: 0 auto;
+}
+.homes-guests-love .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.homes-guests-love .header h2 {
+  font-size: 19px;
+  font-weight: 700;
+}
+.homes-guests-love .header a {
+  font-size: 14px;
+  color: #0071c2;
+  text-decoration: none;
+}
+.homes-guests-love .header a:hover {
+  text-decoration: underline;
+}
+.homes-guests-love .home-list {
+  display: flex;
+  gap: 20px;
+  margin-top: 24px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.homes-guests-love .home-list .home-card {
+  flex: 0 0 23%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.homes-guests-love .home-list .home-card .property-image {
+  height: 160px;
+  background-color: #ddd;
+}
+.homes-guests-love .home-list .home-card .home-info {
+  padding: 12px;
+}
+.homes-guests-love .home-list .home-card .home-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.homes-guests-love .home-list .home-card .home-info p {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+.homes-guests-love .home-list .home-card .home-info .rating {
+  font-size: 13px;
+  color: #222;
+}
+.homes-guests-love .home-list .home-card .home-info .rating .score {
+  background-color: #003580;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-right: 6px;
+  display: inline-block;
+}
+.homes-guests-love .home-list .home-card .home-info .rating span + span {
+  margin-left: 4px;
+}
+.homes-guests-love .home-list .home-card .home-info .price {
+  font-size: 13px;
+  margin-top: 6px;
+}
+.homes-guests-love .home-list .home-card .home-info .price strong {
+  font-weight: 600;
+}
+.homes-guests-love .benefits {
+  display: flex;
+  gap: 20px;
+  margin-top: 50px;
+}
+.homes-guests-love .benefits .benefit {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  background: #f1f4f7;
+  border-radius: 10px;
+  padding: 16px;
+  gap: 12px;
+}
+.homes-guests-love .benefits .benefit .icon {
+  font-size: 24px;
+}
+.homes-guests-love .benefits .benefit strong {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 4px;
+}
+.homes-guests-love .benefits .benefit p {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+}
+
+.about-page-container .navBar {
+  top: 0;
+  left: 0;
+}
+.about-page-container .about-page {
+  padding: 11.5rem 0;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  color: #222;
+  width: 70%;
+  margin: 40px auto;
+  gap: 60px;
+}
+.about-page-container .about-page .sidebar {
+  padding-top: 7.5rem;
+  padding-left: 200px;
+  width: 400px;
+  flex-shrink: 0;
+}
+.about-page-container .about-page .sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.about-page-container .about-page .sidebar ul li {
+  padding: 10px 8px;
+  font-size: 14px;
+  color: var(--PrimaryColor);
+  cursor: pointer;
   border-radius: 4px;
 }
-.user-profile-page .profile-container .profile-content .profile-info form button:hover,
-.user-profile-page .profile-container .profile-content .booking-history form button:hover {
-  background-color: var(--HoverColor);
+.about-page-container .about-page .sidebar ul li.active {
+  background-color: #f2f2f2;
+  font-weight: 600;
 }
-.user-profile-page .profile-container .profile-content .profile-info table,
-.user-profile-page .profile-container .profile-content .booking-history table {
-  width: 100%;
-  border-collapse: collapse;
+.about-page-container .about-page .content {
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+  padding-left: 200px;
 }
-.user-profile-page .profile-container .profile-content .profile-info table th, .user-profile-page .profile-container .profile-content .profile-info table td,
-.user-profile-page .profile-container .profile-content .booking-history table th,
-.user-profile-page .profile-container .profile-content .booking-history table td {
-  padding: 0.75rem;
-  border-bottom: 1px solid var(--greyBg);
-  text-align: left;
-  font-size: 14px;
+.about-page-container .about-page .content h2 {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+.about-page-container .about-page .content p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.about-page-container .about-page .content p strong {
+  font-weight: 600;
 }/*# sourceMappingURL=main.css.map */

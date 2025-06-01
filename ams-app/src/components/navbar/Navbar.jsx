@@ -61,8 +61,12 @@ const Navbar = () => {
                         <li className="listItem">
                             <Link to='/search'>Search</Link>
                         </li>
-                        <li className="listItem">Offers</li>
-                        <li className="listItem">Destinations</li>
+                        <li className="listItem">
+                            <Link to='/about'>About</Link>
+                        </li>
+                        <li className="listItem">
+                            <Link to='/explore'>Explore</Link>
+                        </li>
                     </ul>
 
                     <button className="btn flex btnOne">Contact</button>
