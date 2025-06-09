@@ -1,9 +1,12 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
+import apiService from "../../service/apiService";
 
 
 const Signup = () => {
+    const navigate = useNavigate();
 
     const [form, setForm] = useState({
         name: "",
@@ -14,21 +17,32 @@ const Signup = () => {
         address: ""
     });
 
+
     const handleRegister = async (e) => {
         e.preventDefault();
+        if (!form.name || !form.email || !form.password || !form.confirmPassword || !form.phone || !form.address) {
+            alert("All fields are required!");
+            return;
+        }
+
         if (form.password !== form.confirmPassword) {
             alert("Passwords do not match!");
             return;
         }
 
-        const res = await fetch("http://localhost:8080/api/auth/register", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(form),
-        });
+        try {
+            const response = await apiService.registerUser (form);
+            if (response.status === 200) {
+                alert(response.data.message || "Registration successful!");
+                navigate('/sign-in', { replace: true });
 
-        const text = await res.text();
-        alert(text);
+            } else {
+                alert("Registration failed. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error during registration:", error);
+            alert(error.response?.data?.message || "An error occurred during registration.");
+        }
     };
 
 

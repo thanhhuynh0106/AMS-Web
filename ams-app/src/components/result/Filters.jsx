@@ -1,49 +1,99 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Filters = () => {
+const Filters = ({ onFilterChange, flightCount }) => {
+  const [selectedAirlines, setSelectedAirlines] = useState([]);
+  const [durationRange, setDurationRange] = useState(null); // null means no duration filter
+
+  // Handle airline checkbox changes
+  const handleAirlineChange = (airline) => {
+    const updatedAirlines = selectedAirlines.includes(airline)
+      ? selectedAirlines.filter((item) => item !== airline)
+      : [...selectedAirlines, airline];
+    setSelectedAirlines(updatedAirlines);
+    onFilterChange({ airlines: updatedAirlines, durationRange });
+  };
+
+  // Handle duration radio button changes
+  const handleDurationChange = (range) => {
+    const newDurationRange = range === "all" ? null : JSON.parse(range);
+    setDurationRange(newDurationRange);
+    onFilterChange({ airlines: selectedAirlines, durationRange: newDurationRange });
+  };
+
   return (
     <div className="filters">
       <h3>Filter your results</h3>
-      <p>Showing 1076 flights</p>
-      {/* <div className="filter-section">
-        <h4>Stops</h4>
+      <p>Showing {flightCount} flights</p>
+      <div className="filter-section">
+        <h4>Airlines</h4>
         <label>
-          <input type="radio" name="stops" defaultChecked /> Any
+          <input
+            type="checkbox"
+            checked={selectedAirlines.includes("Vietjet")}
+            onChange={() => handleAirlineChange("Vietjet")}
+          />
+          Vietjet
         </label>
-        <p>From VND6,073,081.00 - 1076</p>
         <label>
-          <input type="radio" name="stops" /> Direct only
+          <input
+            type="checkbox"
+            checked={selectedAirlines.includes("Vietnam Airlines")}
+            onChange={() => handleAirlineChange("Vietnam Airlines")}
+          />
+          Vietnam Airlines
         </label>
-        <p>From VND7,345,520.00 - 182</p>
         <label>
-          <input type="radio" name="stops" /> 1 stop max
+          <input
+            type="checkbox"
+            checked={selectedAirlines.includes("Bamboo Airways")}
+            onChange={() => handleAirlineChange("Bamboo Airways")}
+          />
+          Bamboo Airways
         </label>
-        <p>From VND6,073,081.00 - 1076</p>
-      </div> */}
-        <div className="filter-section">
-            <h4>Airlines</h4>
-            <label>
-            <input type="checkbox" /> VietJet Air
-            </label>
-            <label>
-            <input type="checkbox" /> Vietnam Airlines
-            </label>
-            <label>
-            <input type="checkbox" /> Bamboo Airways
-            </label>
-        </div>
-        <div className="filter-section">
-            <h4>Duration</h4>
-            <label>
-            <input type="checkbox" /> 0-2 hours
-            </label>
-            <label>
-            <input type="checkbox" /> 2-4 hours
-            </label>
-            <label>
-            <input type="checkbox" /> 4-6 hours
-            </label>
-        </div>
+      </div>
+      <div className="filter-section">
+        <h4>Flight Duration</h4>
+        <label>
+          <input
+            type="checkbox"
+            name="duration"
+            value="all"
+            checked={durationRange === null}
+            onChange={() => handleDurationChange("all")}
+          />
+          All durations
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="duration"
+            value='{"min":30,"max":60}'
+            checked={durationRange?.min === 30 && durationRange?.max === 60}
+            onChange={() => handleDurationChange('{"min":30,"max":60}')}
+          />
+          30–60 minutes
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="duration"
+            value='{"min":60,"max":90}'
+            checked={durationRange?.min === 60 && durationRange?.max === 90}
+            onChange={() => handleDurationChange('{"min":60,"max":90}')}
+          />
+          60–90 minutes
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="duration"
+            value='{"min":90,"max":120}'
+            checked={durationRange?.min === 90 && durationRange?.max === 120}
+            onChange={() => handleDurationChange('{"min":90,"max":120}')}
+          />
+          90–120 minutes
+        </label>
+      </div>
     </div>
   );
 };

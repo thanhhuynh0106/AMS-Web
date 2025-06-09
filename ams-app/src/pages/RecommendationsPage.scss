@@ -1,0 +1,253 @@
+.recommendations-page {
+  padding-top: 0;
+  &.section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e9ecef 100%); // Subtle gradient for modern feel
+  }
+
+  .container {
+    flex: 1;
+    max-width: 1280px; // Slightly wider for modern screens
+    margin: 0 auto;
+    padding: 30px 20px; // More padding for breathing room
+  }
+
+  &__title {
+    margin-top: 120px;
+    font-size: 2rem; // Slightly larger for prominence
+    font-weight: 700;
+    color: #1a3552; // Darker, richer blue for elegance
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px; // Subtle spacing for readability
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: #007bff; // Accent underline for visual hierarchy
+      border-radius: 2px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; // Slightly larger gap for clarity
+  }
+
+  &__subtitle {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50; // Softer, modern dark shade
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 10px;
+    border-left: 4px solid #007bff; // Accent border for emphasis
+  }
+
+  &__summary {
+    background-color: #ffffff;
+    border-radius: 12px; // Softer, modern radius
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); // Softer, deeper shadow
+    border: none; // Remove border for cleaner look
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    &:hover {
+      transform: translateY(-5px); // Subtle lift on hover
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  &__province-group {
+    margin: 15px 0;
+    p {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #34495e; // Modern, muted tone
+      margin-bottom: 8px;
+      line-height: 1.5; // Better readability
+    }
+  }
+
+  &__location-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0 25px;
+    li {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 12px;
+      padding-left: 15px;
+      position: relative;
+      line-height: 1.6;
+      &::before {
+        content: '•'; // Custom bullet for visual appeal
+        color: #007bff;
+        position: absolute;
+        left: 0;
+        font-size: 0.9rem;
+      }
+      span {
+        display: block;
+        font-size: 0.9rem;
+        color: #7f8c8d; // Softer gray for secondary text
+        margin-top: 4px;
+      }
+    }
+  }
+
+  &__flights {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  &__flight-item {
+    border-bottom: 1px solid #f0f0f0; // Softer divider
+    padding: 15px 0;
+    &:last-child {
+      border-bottom: none;
+    }
+    p {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 6px 0;
+      line-height: 1.6;
+      strong {
+        color: #2c3e50; // Consistent darker tone
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__empty {
+    font-size: 0.9rem;
+    color: #95a5a6; // Softer gray for empty state
+    font-style: italic;
+    text-align: center;
+    padding: 25px;
+    background: #f8f9fa; // Light background for contrast
+    border-radius: 8px;
+  }
+
+  &__ticket-input {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    label {
+      font-size: 0.9rem;
+      color: #2c3e50;
+    }
+    input {
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      width: 100px;
+      transition: border-color 0.3s ease;
+      &:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 15px 0;
+    gap: 15px; // Space between buttons
+  }
+
+  .btn {
+    padding: 12px 25px; // Larger padding for better click area
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px; // Softer radius
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    &:hover {
+      transform: translateY(-2px); // Subtle lift on hover
+    }
+  }
+
+  &__back-btn {
+    background-color: #6c757d;
+    color: #fff;
+    &:hover {
+      background-color: #5a6268;
+    }
+    &:disabled {
+      background-color: #b0b8bf;
+      cursor: not-allowed;
+      transform: none; // No lift when disabled
+    }
+  }
+
+  &__ok-btn {
+    background: linear-gradient(90deg, #007bff, #00aaff); // Gradient for modern look
+    color: #fff;
+    &:hover {
+      background: linear-gradient(90deg, #0056b3, #0086d6);
+    }
+    &:disabled {
+      background: #b0b8bf;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+
+  .loading {
+    font-size: 0.9rem;
+    color: #007bff;
+    text-align: center;
+    padding: 30px;
+    position: relative;
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #007bff;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 1s linear infinite;
+      margin-left: 10px;
+    }
+  }
+
+  .error {
+    font-size: 0.9rem;
+    color: #dc3545;
+    text-align: center;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #dc3545; // Error accent
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+}
+

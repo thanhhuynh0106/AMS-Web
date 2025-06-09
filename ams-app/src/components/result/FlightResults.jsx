@@ -1,86 +1,164 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import apiService from "../../service/apiService";
 
-const FlightResults = ({ flights, sortOption, onViewDetails }) => {
-  const sampleFlights = [
-    {
-      id: 1,
-      time: "2:45 PM",
-      duration: "4h 30m",
-      arrival: "7:15 PM",
-      price: "VND6,071,525.00",
-      airline: "VietJet Aviation",
-      date: "Jun 21 - Jun 28",
-      stops: "1 stop",
-    },
-    {
-      id: 2,
-      time: "7:10 PM",
-      duration: "12h 50m",
-      arrival: "8:00 AM",
-      price: "VND6,071,525.00",
-      airline: "VietJet Aviation",
-      date: "Jun 21 - Jun 29",
-      stops: "1 stop",
-    },
-  ];
+// Province mapping
+const provinceMap = {
+  CT: "Cần Thơ",
+  DL: "Đà Lạt",
+  DN: "Đà Nẵng",
+  HCM: "TP HCM",
+  HN: "Hà Nội",
+  HP: "Hải Phòng",
+  HUE: "Huế",
+  NT: "Nha Trang",
+  PQ: "Phú Quốc",
+  QN: "Quy Nhơn",
+  QNAM: "Quảng Nam",
+  TH: "Thanh Hóa",
+  VINH: "Vinh",
+};
 
-  const sortedFlights = [...(flights.length ? flights : sampleFlights)].sort((a, b) => {
-    if (sortOption === "Cheapest") return parseFloat(a.price.replace(/[^0-9.-]+/g, "")) - parseFloat(b.price.replace(/[^0-9.-]+/g, ""));
-    if (sortOption === "Fastest") return parseInt(a.duration.split("h")[0]) - parseInt(b.duration.split("h")[0]);
-    return 0;
-  });
+const FlightResults = ({ sortOption, onViewDetails, flights }) => {
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const [nearbyFlights, setNearbyFlights] = useState([]);
+
+  const departureProvinceId = searchParams.get("departureProvinceId");
+  const destinationProvinceId = searchParams.get("destinationProvinceId");
+  const takeoffDate = searchParams.get("takeoffDate");
+
+  const getProvinceName = (provinceId) => provinceMap[provinceId] || provinceId;
+
+  const getDateRange = (baseDate, daysOffset) => {
+    const date = new Date(baseDate);
+    date.setDate(date.getDate() + daysOffset);
+    return date.toISOString().split("T")[0];
+  };
+
+  const formatDate = (dateStr) => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  };
+
+  useEffect(() => {
+    if (departureProvinceId && destinationProvinceId && takeoffDate) {
+      const fetchNearbyFlights = async () => {
+        try {
+          const startDate = getDateRange(takeoffDate, -2);
+          const endDate = getDateRange(takeoffDate, 2);
+          const response = await apiService.searchFlightsByDateRange(
+            departureProvinceId,
+            destinationProvinceId,
+            startDate,
+            endDate
+          );
+          const flightsData = response.data || response || [];
+          const normalizedNearbyFlights = flightsData.map((flight) => ({
+            flightId: flight.id || flight.flightId || `flight-${Math.random()}`,
+            takeoffDate: flight.date || flight.takeoffDate,
+            price: flight.price || flight.totalPrice || "0",
+          }));
+
+          const cheapestByDate = normalizedNearbyFlights.reduce((acc, flight) => {
+            const date = flight.takeoffDate;
+            const price = parseFloat(flight.price);
+            if (!acc[date] || price < acc[date].price) {
+              acc[date] = { date, price };
+            }
+            return acc;
+          }, {});
+
+          const nearbyOptions = Object.values(cheapestByDate)
+            .filter((option) => option.date !== takeoffDate)
+            .sort((a, b) => new Date(a.date) - new Date(b.date))
+            .slice(0, 4);
+          setNearbyFlights(nearbyOptions);
+        } catch (err) {
+          console.error("Error fetching nearby flights:", err);
+          setNearbyFlights([]);
+        }
+      };
+      fetchNearbyFlights();
+    }
+  }, [departureProvinceId, destinationProvinceId, takeoffDate]);
+
+  if (!flights.length || !departureProvinceId || !destinationProvinceId || !takeoffDate) {
+    return <div>Please provide valid search criteria or perform a new search.</div>;
+  }
 
   return (
     <div className="flight-results">
-      {sortedFlights.map((flight) => (
-        <div key={flight.id} className="flight-card">
+      {flights.map((flight, index) => (
+        <div key={flight.flightId} className="flight-card">
           <div className="badges">
-            <span className="badge green">Cheapest</span>
+            {index === 0 && <span className="badge green">Best</span>}
             <span className="badge lightgreen">Flexible ticket upgrade available</span>
           </div>
-
           <div className="flight-content">
             <div className="flight-info">
               <div className="time-info">
-                <strong>{flight.time}</strong>
-                <span>SGN • {flight.date.split(" - ")[0]}</span>
+                <strong>{flight.takeoffTime}</strong>
+                <span>
+                  {getProvinceName(flight.departureProvinceId)} • {formatDate(flight.takeoffDate)}
+                </span>
               </div>
               <div className="stop-info">
                 <div className="line"></div>
-                <span className="stops">{flight.stops}</span>
+                <span className="stops">nonstop</span>
                 <div className="line"></div>
-                <span className="duration">{flight.duration}</span>
+                <span className="duration">{flight.duration} mins</span>
               </div>
               <div className="time-info">
-                <strong>{flight.arrival}</strong>
-                <span>HAN • {flight.date.split(" - ")[0]}</span>
+                <strong>{flight.landingTime}</strong>
+                <span>
+                  {getProvinceName(flight.destinationProvinceId)} • {formatDate(flight.landingDate)}
+                </span>
               </div>
             </div>
-
             <div className="flight-price">
-              <div className="price">{flight.price}</div>
+              <div className="price">VND {Number(flight.totalPrice).toLocaleString()} /ticket</div>
               <button className="view-details" onClick={() => onViewDetails(flight)}>
                 View details
               </button>
             </div>
           </div>
-
           <div className="airline-name">{flight.airline}</div>
+          <div className="seat-class">Hạng ghế {flight.seatClass}</div>
+          {index === 0 && (
+            <div className="better-prices">
+              <div className="better-prices-text">
+                <strong>We found better prices! Compare nearby dates.</strong>
+                <p>Latest prices found for your search – actual prices shown in next step</p>
+              </div>
+              <div className="date-options">
+                {nearbyFlights.length > 0 ? (
+                  nearbyFlights.map((option, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        navigate(
+                          `/result?departureProvinceId=${encodeURIComponent(
+                            departureProvinceId
+                          )}&destinationProvinceId=${encodeURIComponent(
+                            destinationProvinceId
+                          )}&takeoffDate=${encodeURIComponent(option.date)}&sortBy=${sortOption === "Fastest" ? "duration" : sortOption === "Best" ? "best" : "price"
+                          }&sortOrder=${sortOption === "Best" ? "desc" : "asc"}`
+                        );
+                      }}
+                    >
+                      {formatDate(option.date)}<br />
+                      <strong>VND {Math.round(option.price).toLocaleString()}</strong>
+                    </button>
+                  ))
+                ) : (
+                  <div>No nearby date options available.</div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       ))}
-
-      <div className="better-prices">
-        <div className="better-prices-text">
-          <strong>We found better prices! Compare nearby dates.</strong>
-          <p>Latest prices found for your search – actual prices shown in next step</p>
-        </div>
-        <div className="date-options">
-          <button>Jun 18 – Jun 25<br /><strong>VND3,682,292</strong></button>
-          <button>Jun 19 – Jun 26<br /><strong>VND3,990,161</strong></button>
-          <button>Jun 20 – Jun 27<br /><strong>VND4,187,913</strong></button>
-          <button>Jun 22 – Jun 29<br /><strong>VND3,713,320</strong></button>
-        </div>
-      </div>
     </div>
   );
 };

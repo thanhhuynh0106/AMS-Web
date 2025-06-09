@@ -1,41 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FlightForm from "./Flightform";
+import apiService from "../../service/apiService"; // Assuming apiService is in services folder
 
 const FlightManagement = () => {
-  const [flights, setFlights] = useState([
-    {
-      id: 1,
-      flightCode: "VN123",
-      airline: "Vietnam Airlines",
-      symbol: "VN",
-      takeoffTime: "2025-05-22T09:00",
-      landingTime: "2025-05-22T11:00",
-      totalPrice: 1500000,
-      seatClass: "Economy",
-      departureProvince: "HCMC",
-      destinationProvince: "Hanoi",
-    },
-    {
-      id: 2,
-      flightCode: "VN456",
-      airline: "Vietnam Airlines",
-      symbol: "VN",
-      takeoffTime: "2025-05-22T12:00",
-      landingTime: "2025-05-22T13:30",
-      totalPrice: 2000000,
-      seatClass: "Business",
-      departureProvince: "Hanoi",
-      destinationProvince: "Da Nang",
-    },
-  ]);
+  const [flights, setFlights] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [selectedFlight, setSelectedFlight] = useState(null);
   const [isViewOnly, setIsViewOnly] = useState(false);
 
-  const handleAddFlight = () => {
+  useEffect(() => {
+    fetchFlights();
+  }, []);
+
+  const fetchFlights = async () => {
+    try {
+      const response = await apiService.getAllFlights();
+      console.log("Fetched flights:", response); // Debug fetched flights
+      
+      setFlights(response.flightList);
+    } catch (error) {
+      console.error("Error fetching flights:", error);
+    }
+  };
+
+  const handleAddFlight = async (formData) => {
     setSelectedFlight(null);
     setIsViewOnly(false);
     setShowForm(true);
+    try {
+      const response = await apiService.addFlight(formData);
+      console.log("Flight created successfully:", response); // Debug response
+    } catch (error) {
+      console.error("Error adding flight:", error);
+    }
   };
 
   const handleEditFlight = (flight) => {
@@ -48,15 +45,28 @@ const FlightManagement = () => {
     setSelectedFlight(flight);
     setIsViewOnly(true);
     setShowForm(true);
+    console.log("Viewing flight:", flight); // Debug selected flight
   };
 
-  const handleSaveFlight = (formData) => {
-    if (selectedFlight) {
-      setFlights(flights.map((flight) => (flight.id === selectedFlight.id ? { ...flight, ...formData } : flight)));
-    } else {
-      setFlights([...flights, { id: flights.length + 1, ...formData }]);
+  const handleSaveFlight = async (formData) => {
+    try {
+      console.log("Saving flight data:", formData); // Debug form data
+      if (selectedFlight) {
+        const response = await apiService.updateFlight(selectedFlight.flightId, formData);
+        console.log("Flight updated successfully:", response); // Debug response
+      } else {
+        const response = await apiService.addFlight(
+          formData, 
+          formData.departureProvinceId, 
+          formData.destinationProvinceId
+        );
+        console.log("Flight created successfully:", response); // Debug response
+      }
+      fetchFlights();
+      setShowForm(false);
+    } catch (error) {
+      console.error("Error saving flight:", error);
     }
-    setShowForm(false);
   };
 
   const handleCancel = () => {
@@ -64,8 +74,14 @@ const FlightManagement = () => {
     setSelectedFlight(null);
   };
 
-  const handleDeleteFlight = (id) => {
-    setFlights(flights.filter((flight) => flight.id !== id));
+  const handleDeleteFlight = async (id) => {
+    console.log("Deleting flight with ID:", id);
+    try {
+      await apiService.deleteFlight(id);
+      fetchFlights();
+    } catch (error) {
+      console.error("Error deleting flight:", error);
+    }
   };
 
   return (
@@ -81,7 +97,9 @@ const FlightManagement = () => {
             <th>Flight Code</th>
             <th>Airline</th>
             <th>Symbol</th>
+            <th>Takeoff Date</th>
             <th>Takeoff Time</th>
+            <th>Landing Date</th>
             <th>Landing Time</th>
             <th>Total Price</th>
             <th>Seat Class</th>
@@ -92,21 +110,23 @@ const FlightManagement = () => {
         </thead>
         <tbody>
           {flights.map((flight) => (
-            <tr key={flight.id}>
-              <td>{flight.id}</td>
+            <tr key={flight.flightId}>
+              <td>{flight.flightId}</td>
               <td>{flight.flightCode}</td>
               <td>{flight.airline}</td>
               <td>{flight.symbol}</td>
-              <td>{new Date(flight.takeoffTime).toLocaleString()}</td>
-              <td>{new Date(flight.landingTime).toLocaleString()}</td>
+              <td>{flight.takeoffDate}</td>
+              <td>{flight.takeoffTime}</td>
+              <td>{flight.landingDate}</td>
+              <td>{flight.landingTime}</td>
               <td>{flight.totalPrice.toLocaleString()} VND</td>
               <td>{flight.seatClass}</td>
-              <td>{flight.departureProvince}</td>
-              <td>{flight.destinationProvince}</td>
+              <td>{flight.departureProvinceId}</td>
+              <td>{flight.destinationProvinceId}</td>
               <td>
                 <button className="action-btn view-btn" onClick={() => handleViewFlight(flight)}>View</button>
                 <button className="action-btn edit-btn" onClick={() => handleEditFlight(flight)}>Edit</button>
-                <button className="action-btn delete-btn" onClick={() => handleDeleteFlight(flight.id)}>Delete</button>
+                <button className="action-btn delete-btn" onClick={() => handleDeleteFlight(flight.flightId)}>Delete</button>
               </td>
             </tr>
           ))}
@@ -120,6 +140,7 @@ const FlightManagement = () => {
           isViewOnly={isViewOnly}
         />
       )}
+
     </div>
   );
 };

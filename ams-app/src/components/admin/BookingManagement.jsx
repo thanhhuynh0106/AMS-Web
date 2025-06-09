@@ -1,28 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BookingForm from "./BookingForm";
+import apiService from "../../service/apiService"; // Assuming you have an apiService file
 
 const BookingManagement = () => {
-  const [bookings, setBookings] = useState([
-    {
-      id: 1,
-      bookingId: "B001",
-      userNameId: "U001",
-      flightId: "F001",
-      ticketQuantity: 2,
-      status: "Confirmed",
-    },
-    {
-      id: 2,
-      bookingId: "B002",
-      userNameId: "U002",
-      flightId: "F002",
-      ticketQuantity: 1,
-      status: "Pending",
-    },
-  ]);
+  const [bookings, setBookings] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [isViewOnly, setIsViewOnly] = useState(false);
+
+  useEffect(() => {
+    fetchBookings();
+  }, []);
+
+  const fetchBookings = async () => {
+    try {
+      const response = await apiService.getAllBookings();
+      setBookings(response.bookingList);
+    } catch (error) {
+      console.error("Error fetching bookings:", error);
+    }
+  };
 
   const handleAddBooking = () => {
     setSelectedBooking(null);
@@ -42,13 +39,18 @@ const BookingManagement = () => {
     setShowForm(true);
   };
 
-  const handleSaveBooking = (formData) => {
-    if (selectedBooking) {
-      setBookings(bookings.map((booking) => (booking.id === selectedBooking.id ? { ...booking, ...formData } : booking)));
-    } else {
-      setBookings([...bookings, { id: bookings.length + 1, ...formData }]);
+  const handleSaveBooking = async (formData) => {
+    try {
+      if (selectedBooking) {
+        await apiService.updateBooking(selectedBooking.bookingId, formData);
+      } else {
+        await apiService.post("/bookings", formData);
+      }
+      fetchBookings();
+      setShowForm(false);
+    } catch (error) {
+      console.error("Error saving booking:", error);
     }
-    setShowForm(false);
   };
 
   const handleCancel = () => {
@@ -56,8 +58,13 @@ const BookingManagement = () => {
     setSelectedBooking(null);
   };
 
-  const handleDeleteBooking = (id) => {
-    setBookings(bookings.filter((booking) => booking.id !== id));
+  const handleDeleteBooking = async (id) => {
+    try {
+      await apiService.deleteBooking(id);
+      fetchBookings();
+    } catch (error) {
+      console.error("Error deleting booking:", error);
+    }
   };
 
   return (
@@ -79,16 +86,16 @@ const BookingManagement = () => {
         </thead>
         <tbody>
           {bookings.map((booking) => (
-            <tr key={booking.id}>
+            <tr key={booking.bookingId}>
               <td>{booking.bookingId}</td>
-              <td>{booking.userNameId}</td>
+              <td>{booking.user}</td>
               <td>{booking.flightId}</td>
               <td>{booking.ticketQuantity}</td>
               <td>{booking.status}</td>
               <td>
                 <button className="action-btn view-btn" onClick={() => handleViewBooking(booking)}>View</button>
                 <button className="action-btn edit-btn" onClick={() => handleEditBooking(booking)}>Edit</button>
-                <button className="action-btn delete-btn" onClick={() => handleDeleteBooking(booking.id)}>Delete</button>
+                <button className="action-btn delete-btn" onClick={() => handleDeleteBooking(booking.bookingId)}>Delete</button>
               </td>
             </tr>
           ))}

@@ -2575,6 +2575,11 @@ h2 {
       font-size: 12px;
       color: var(--greyText);
     }
+    .seat-class {
+      margin-top: 0.2rem;
+      font-size: 12px;
+      color: var(--greyText);
+    }
   }
 
   .better-prices {
@@ -3447,6 +3452,17 @@ h2 {
         }
       }
     }
+    .pay-now-btn {
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .pay-now-btn:hover {
+      background-color: #0056b3;
+    }
   }
 
   p {
@@ -3681,7 +3697,6 @@ h2 {
     }
   }
 }
-
 
 // FAQ page =================>
 .help-center {
@@ -4393,4 +4408,67 @@ h2 {
     }
   }
 }
+
+// thêm scss cho mappage
+// src/pages/MapPage.scss
+
+.map-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .content {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: row; // đảm bảo left-map bên trái, right-panel bên phải
+    flex: 1;
+    height: 100%;
+    padding: 2rem;
+
+    .left-map {
+      width: 50%;
+      padding: 1rem;
+    }
+
+    .right-panel {
+      width: 50%;
+      padding: 1rem;
+      overflow-y: auto;
+
+      h2 {
+        margin-bottom: 1rem;
+      }
+
+      .map-page__location-card {
+        background: #f5f5f5;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+        input[type="checkbox"] {
+          margin-right: 0.5rem;
+        }
+
+        label {
+          display: block;
+          cursor: pointer;
+
+          h3 {
+            margin: 0.5rem 0;
+          }
+
+          p {
+            margin: 0.2rem 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
 }

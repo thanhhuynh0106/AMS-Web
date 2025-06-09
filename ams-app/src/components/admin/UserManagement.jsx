@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UserForm from "./Userform";
+import apiService from "../../service/apiService"; // Assuming you have an apiService file
 
 const UserManagement = () => {
-  const [users, setUsers] = useState([
-    { id: 1, name: "Eugene Stepanov", phone: "+1 (555) 123-4567", email: "eugene.stepanov@example.com", role: "Admin", address: "123 Main St", status: "No" },
-    { id: 2, name: "Jane Smith", phone: "+1 (555) 987-6543", email: "jane.smith@example.com", role: "User", address: "456 Oak Ave", status: "Yes" },
-  ]);
+  const [users, setUsers] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [isViewOnly, setIsViewOnly] = useState(false);
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await apiService.getAllUsers();
+      console.log("Fetched users:", response); // Debug fetched users
+      setUsers(response.userList);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
+  };
 
   const handleAddUser = () => {
     setSelectedUser(null);
@@ -28,15 +41,20 @@ const UserManagement = () => {
     setShowForm(true);
   };
 
-  const handleSaveUser = (formData) => {
-    if (selectedUser) {
-      // Edit existing user
-      setUsers(users.map((user) => (user.id === selectedUser.id ? { ...user, ...formData } : user)));
-    } else {
-      // Add new user
-      setUsers([...users, { id: users.length + 1, ...formData }]);
+  const handleSaveUser = async (formData) => {
+    try {
+      if (selectedUser) {
+        // Edit existing user
+        await apiService.updateUserProfile(selectedUser.userId, formData);
+      } else {
+        // Add new user
+        await apiService.post("/users", formData);
+      }
+      fetchUsers();
+      setShowForm(false);
+    } catch (error) {
+      console.error("Error saving user:", error);
     }
-    setShowForm(false);
   };
 
   const handleCancel = () => {
@@ -44,8 +62,13 @@ const UserManagement = () => {
     setSelectedUser(null);
   };
 
-  const handleDeleteUser = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
+  const handleDeleteUser = async (id) => {
+    try {
+      await apiService.deleteUser(id);
+      fetchUsers();
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
   };
 
   return (
@@ -78,7 +101,7 @@ const UserManagement = () => {
               <td>
                 <button className="action-btn view-btn" onClick={() => handleViewUser(user)}>View</button>
                 <button className="action-btn edit-btn" onClick={() => handleEditUser(user)}>Edit</button>
-                <button className="action-btn delete-btn" onClick={() => handleDeleteUser(user.id)}>Delete</button>
+                <button className="action-btn delete-btn" onClick={() => handleDeleteUser(user.userId)}>Delete</button>
               </td>
             </tr>
           ))}

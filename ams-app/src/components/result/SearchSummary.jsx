@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SearchSummary = ({ departure, destination, date, adult }) => {
+const SearchSummary = ({ departure, destination, date, adult, flightCount, minPrice }) => {
   const [showSummary, setShowSummary] = useState(false);
 
   const handleViewSummary = () => {
@@ -28,7 +28,11 @@ const SearchSummary = ({ departure, destination, date, adult }) => {
             <p><strong>Destination:</strong> {destination}</p>
             <p><strong>Date:</strong> {date}</p>
             <p><strong>Adults:</strong> {adult}</p> */}
-            <p>You have 170 direct flights available starting from VND 7,345,520.00, making it the most convenient option with no stops. For a wider selection, there are 1,029 flights with 1 stop max, with prices starting from VND 6,071,525.00. While the flights with 1 stop max are cheaper, they do involve an additional stop, which may be less desirable. If time and convenience are key, the direct flights are worth considering despite the higher price.</p>
+            <p>
+              Your search from {departure} to {destination} on {date} for {adult} adult{adult > 1 ? "s" : ""} found {flightCount} flights. 
+              Prices start from VND {minPrice.toLocaleString('vi-VN')}, offering a range of options to suit your needs. 
+              Consider sorting by price or duration to find the best fit for your travel preferences.
+            </p>
           </div>
         </div>
       )}

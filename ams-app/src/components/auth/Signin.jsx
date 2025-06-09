@@ -1,40 +1,94 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import ApiService from "../../service/apiService";
 
-
-const Signin = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+function Signin() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        console.log("Login with", email, password);
-        
-        const res = await fetch("http://localhost:8080/api/auth/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password }),
-        });
+        setLoading(true);
+        setError('');
 
-        const text = await res.text();
-        alert(text);
+        // Validate inputs
+        if (!email || !password) {
+            setError('Vui lòng điền đầy đủ thông tin.');
+            setLoading(false);
+            setTimeout(() => setError(''), 5000);
+            return;
+        }
+
+        try {
+            const response = await ApiService.loginUser({ email, password });
+            console.log("Login response:", response);
+            if (response && response.status === 200) {
+            // Save authentication data
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('role', response.data.role);
+            // see role
+            console.log("Role:", response.data.role);
+            // Redirect based on role if needed
+            navigate('/', { replace: true });
+            } else {
+            setError('Sign in failed. Please check your credentials.');
+            }
+        } catch (error) {
+            console.error("Login error:", error);
+            setError(error.response?.data?.message || 'An error occurred during sign in.');
+        } finally {
+            setLoading(false);
+        }
+    
     };
-
 
     return (
         <div className="signin container">
-            <h2>Sign in</h2>
+            <h2>Sign In</h2>
+            {error && <div className="error-message">{error}</div>}
+            
             <form className="form" onSubmit={handleLogin}>
                 <div className="inputs">
-                    <input type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                    <label htmlFor="email">Email</label>
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
                 </div>
+                
                 <div className="inputs">
-                    <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                    <label htmlFor="password">Password</label>
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Enter your password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
                 </div>
-                <button type="submit">Login</button>
+                
+                <button 
+                    type="submit" 
+                    disabled={loading}
+                    className={loading ? "loading-btn" : ""}
+                >
+                    {loading ? "Signing in..." : "Sign in"}
+                </button>
+                
+                <div className="form-footer">
+                    <p>Not having account yet? <span onClick={() => navigate('/signup')}>Sign in</span></p>
+                    <p onClick={() => navigate('/forgot-password')}>Forgot password?</p>
+                </div>
             </form>
         </div>
-    )
+    );
 }
-
 export default Signin;

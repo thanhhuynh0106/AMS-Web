@@ -40,7 +40,7 @@ const BookingForm = ({ booking, onSave, onCancel, isViewOnly }) => {
             <input
               type="text"
               name="userNameId"
-              value={formData.userNameId}
+              value={formData.userId}
               onChange={handleChange}
               disabled={isViewOnly}
               required
@@ -72,7 +72,7 @@ const BookingForm = ({ booking, onSave, onCancel, isViewOnly }) => {
             <label>Status</label>
             <select
               name="status"
-              value={formData.status}
+              value={formData.bookingStatus}
               onChange={handleChange}
               disabled={isViewOnly}
               required

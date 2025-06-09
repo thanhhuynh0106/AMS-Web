@@ -19,7 +19,7 @@ const handleSend = async () => {
     setInput("");
 
     try {
-      const res = await fetch("http://localhost:8080/api/chat", {
+      const res = await fetch("http://localhost:8080/chat/all", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
